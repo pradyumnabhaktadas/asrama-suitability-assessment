@@ -1,0 +1,3540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Āśrama Suitability Assessment | Devotee Guidance System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --primary-saffron: #c86314;
+  --primary-hover: #b0530b;
+  --saffron-soft: #fef4ea;
+  --saffron-border: #f9d3b0;
+  
+  --tulasi-deep: #1b4332;
+  --tulasi-mid: #2d6a4f;
+  --tulasi-light: #e8f5ec;
+  --tulasi-border: #b7e4c7;
+
+  --gold-accent: #b45309;
+  --gold-soft: #fffbeb;
+  --gold-border: #fde68a;
+
+  --bg-page: #fbf9f4;
+  --surface-card: #ffffff;
+  --surface-subtle: #f5f2e9;
+  --text-main: #1e2922;
+  --text-muted: #57655d;
+  --text-light: #7c8b82;
+  --border-line: #e4decb;
+
+  --danger-bg: #fef2f2;
+  --danger-border: #fca5a5;
+  --danger-text: #991b1b;
+  
+  --warning-bg: #fffbeb;
+  --warning-border: #fcd34d;
+  --warning-text: #92400e;
+
+  --success-bg: #f0fdf4;
+  --success-border: #86efac;
+  --success-text: #166534;
+
+  --font-heading: 'Cinzel', serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(35, 45, 39, 0.08);
+  --shadow-lg: 0 10px 25px rgba(35, 45, 39, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="auto"], :root[data-theme="dark"] {
+    --bg-page: #121714;
+    --surface-card: #1a221d;
+    --surface-subtle: #222b25;
+    --text-main: #f0f4f1;
+    --text-muted: #a3b2a8;
+    --text-light: #6d7d73;
+    --border-line: #2e3a32;
+    --saffron-soft: #301f11;
+    --saffron-border: #633614;
+    --tulasi-light: #162c21;
+    --tulasi-border: #23543d;
+    --gold-soft: #2d230e;
+    --gold-border: #594417;
+  }
+}
+:root[data-theme="light"] {
+  --bg-page: #fbf9f4;
+  --surface-card: #ffffff;
+  --surface-subtle: #f5f2e9;
+  --text-main: #1e2922;
+  --text-muted: #57655d;
+  --text-light: #7c8b82;
+  --border-line: #e4decb;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 90px;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+/* Header Banner */
+.header-hero {
+  background: linear-gradient(135deg, #183e2e 0%, #295f47 50%, #85400d 100%);
+  border-radius: 18px;
+  padding: 32px 28px;
+  color: #ffffff;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.header-hero::after {
+  content: "ॐ";
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+  font-size: 130px;
+  opacity: 0.08;
+  pointer-events: none;
+  font-family: serif;
+}
+.header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: #fce7cf;
+}
+.header-hero h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.header-hero .byline {
+  font-size: 14px;
+  color: #d1e5d8;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.header-hero .byline span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+  display: flex;
+  background: var(--surface-card);
+  border: 1px solid var(--border-line);
+  padding: 6px;
+  border-radius: 14px;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 12px;
+  z-index: 50;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+.tab-btn {
+  flex: 1 0 auto;
+  border: none;
+  background: transparent;
+  padding: 10px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.tab-btn:hover {
+  color: var(--primary-saffron);
+  background: var(--surface-subtle);
+}
+.tab-btn.active {
+  background: var(--primary-saffron);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(200, 99, 20, 0.35);
+}
+.tab-btn.mentor-tab {
+  color: var(--tulasi-deep);
+  background: var(--tulasi-light);
+  border: 1px solid var(--tulasi-border);
+}
+.tab-btn.mentor-tab.active {
+  background: var(--tulasi-mid);
+  color: #ffffff;
+}
+
+/* Card Wrapper */
+.panel {
+  display: none;
+  animation: fadeIn 0.25s ease-out;
+}
+.panel.active { display: block; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-line);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.card-header {
+  border-bottom: 1px solid var(--border-line);
+  padding-bottom: 14px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--tulasi-deep);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+:root[data-theme="dark"] .card-title { color: #86efac; }
+.card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Callout Box */
+.notice-box {
+  background: var(--saffron-soft);
+  border-left: 4px solid var(--primary-saffron);
+  padding: 16px 18px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  font-size: 14.5px;
+  color: var(--text-main);
+}
+.notice-box strong { color: var(--primary-saffron); }
+
+/* Form Grids */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.form-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-label span.req { color: #dc2626; margin-left: 3px; }
+input[type="text"], input[type="number"], select, textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 10px 14px;
+  border-radius: 9px;
+  border: 1px solid var(--border-line);
+  background: var(--bg-page);
+  color: var(--text-main);
+  transition: all 0.2s ease;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary-saffron);
+  box-shadow: 0 0 0 3px rgba(200, 99, 20, 0.15);
+  background: var(--surface-card);
+}
+textarea { resize: vertical; min-height: 80px; }
+
+/* Question Group Card */
+.cat-container {
+  margin-bottom: 28px;
+}
+.cat-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-subtle);
+  border-left: 5px solid var(--primary-saffron);
+  padding: 12px 18px;
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 16px;
+}
+.cat-heading h3 {
+  font-family: var(--font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--tulasi-deep);
+}
+:root[data-theme="dark"] .cat-heading h3 { color: #fce7cf; }
+.cat-tag {
+  margin-left: auto;
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  background: rgba(200, 99, 20, 0.12);
+  color: var(--primary-saffron);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cat-tag.gatekeeper {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.question-card {
+  background: var(--surface-card);
+  border: 1px solid var(--border-line);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.question-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-sm);
+}
+.question-header {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-main);
+  margin-bottom: 12px;
+  display: flex;
+  gap: 8px;
+}
+.q-num {
+  color: var(--primary-saffron);
+  font-weight: 700;
+}
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.option-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 9px;
+  border: 1px solid var(--border-line);
+  background: var(--bg-page);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  font-size: 14.5px;
+  color: var(--text-main);
+}
+.option-label:hover {
+  background: var(--surface-subtle);
+  border-color: #cbd5e1;
+}
+.option-label input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #94a3b8;
+  border-radius: 50%;
+  margin-top: 2px;
+  flex-shrink: 0;
+  display: grid;
+  place-content: center;
+  transition: 0.15s ease;
+}
+.option-label input[type="radio"]::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 0.15s transform ease-in-out;
+  background-color: #ffffff;
+}
+.option-label:has(input[type="radio"]:checked) {
+  border-color: var(--primary-saffron);
+  background: var(--saffron-soft);
+  box-shadow: 0 0 0 1px var(--primary-saffron);
+}
+.option-label input[type="radio"]:checked {
+  border-color: var(--primary-saffron);
+  background-color: var(--primary-saffron);
+}
+.option-label input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+.custom-answer-input {
+  margin-top: 6px;
+  display: none;
+}
+.option-label:has(input[value="custom"]:checked) + .custom-answer-input {
+  display: block;
+}
+
+/* Sticky Action & Progress Bar */
+.sticky-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface-card);
+  border-top: 1px solid var(--border-line);
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.08);
+  padding: 12px 20px;
+  z-index: 100;
+}
+.footer-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.progress-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.progress-bar-track {
+  width: 100%;
+  height: 8px;
+  background: var(--surface-subtle);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--tulasi-mid), var(--primary-saffron));
+  border-radius: 99px;
+  transition: width 0.3s ease;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 9px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--primary-saffron);
+  color: #ffffff;
+}
+.btn-primary:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(200, 99, 20, 0.3);
+}
+.btn-outline {
+  background: transparent;
+  border-color: var(--border-line);
+  color: var(--text-main);
+}
+.btn-outline:hover {
+  background: var(--surface-subtle);
+  border-color: #94a3b8;
+}
+.btn-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+}
+.btn-whatsapp:hover {
+  background: #1eb855;
+}
+.btn-tulasi {
+  background: var(--tulasi-mid);
+  color: #ffffff;
+}
+.btn-tulasi:hover {
+  background: var(--tulasi-deep);
+}
+
+/* Mentor Section Styling */
+.mentor-badge {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.score-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.score-card {
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--surface-subtle);
+  border: 1px solid var(--border-line);
+  text-align: center;
+}
+.score-card .big-num {
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 8px 0;
+}
+.score-card.total {
+  background: linear-gradient(135deg, #fef7ee 0%, #fff 100%);
+  border-color: var(--saffron-border);
+}
+.score-card.total .big-num { color: var(--primary-saffron); }
+
+.score-card.recommendation {
+  background: linear-gradient(135deg, #f0fdf4 0%, #fff 100%);
+  border-color: var(--tulasi-border);
+}
+.score-card.recommendation .rec-status {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--tulasi-deep);
+  margin-top: 6px;
+}
+
+.area-score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.area-score-table th, .area-score-table td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-line);
+}
+.area-score-table th {
+  background: var(--surface-subtle);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.badge-status {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-gatekeeper-alert {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+.badge-ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.mentor-alert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 9px;
+  background: #fff7ed;
+  border-left: 4px solid #ea580c;
+  margin-bottom: 8px;
+  font-size: 13.5px;
+}
+
+/* Roster and Candidate Management */
+.roster-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.roster-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.roster-table th, .roster-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-line);
+}
+.roster-table th {
+  background: var(--surface-subtle);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.roster-table tr:hover {
+  background: var(--surface-subtle);
+}
+
+/* Filter Chips for Questions */
+.filter-chips-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.filter-chip {
+  border: 1px solid var(--border-line);
+  background: var(--bg-page);
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.filter-chip:hover {
+  border-color: var(--primary-saffron);
+  color: var(--text-main);
+}
+.filter-chip.active {
+  background: var(--tulasi-deep);
+  color: #fff;
+  border-color: var(--tulasi-deep);
+}
+
+/* Detailed Audit Table */
+.audit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin-top: 10px;
+}
+.audit-table th, .audit-table td {
+  padding: 12px 14px;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border-line);
+}
+.audit-table th {
+  background: var(--surface-subtle);
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.audit-table tr.score-0 {
+  background: #fff5f5;
+}
+:root[data-theme="dark"] .audit-table tr.score-0 {
+  background: #2a1818;
+}
+.audit-table tr.score-1 {
+  background: #fffdf5;
+}
+:root[data-theme="dark"] .audit-table tr.score-1 {
+  background: #292415;
+}
+.audit-choice-pill {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 12px;
+  margin-right: 4px;
+}
+
+/* Modal for PIN */
+.pin-dialog {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.pin-dialog.active { display: flex; }
+.pin-content {
+  background: var(--surface-card);
+  border-radius: 16px;
+  padding: 28px;
+  max-width: 380px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-line);
+}
+
+/* Print Overrides */
+@media print {
+  body { background: #fff !important; color: #000 !important; padding-bottom: 0 !important; }
+  .sticky-footer, .nav-tabs, .btn, .pin-dialog, .no-print { display: none !important; }
+  .panel { display: block !important; }
+  .card { box-shadow: none !important; border: 1px solid #ddd !important; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  
+  <!-- Header Banner -->
+  <header class="header-hero">
+    <div class="header-badge">Śrīmad-Bhāgavatam • Āśrama Guidance</div>
+    <h1>Āśrama Suitability Assessment</h1>
+    <div class="byline">
+      <span>📅 Nov 8, 2026</span>
+      <span>•</span>
+      <span>✍️ @Pradyumna Bhakta Das</span>
+      <span>•</span>
+      <span>🙏 Confidential Devotee Diagnostic</span>
+    </div>
+  </header>
+
+  <!-- Navigation Tabs -->
+  <nav class="nav-tabs" id="tabBar">
+    <button type="button" class="tab-btn active" data-target="panel-intro">🌸 Purpose & Guide</button>
+    <button type="button" class="tab-btn" data-target="panel-part-a">📋 Part A (Details)</button>
+    <button type="button" class="tab-btn" data-target="panel-part-b">🧭 Part B (52 Scenarios)</button>
+    
+    
+    <button type="button" class="tab-btn" data-target="panel-submit">📤 Submit / Share</button>
+    <button type="button" class="tab-btn mentor-tab" data-target="panel-mentor">🔐 Mentor Portal</button>
+  </nav>
+
+  <!-- ==================== PANEL 1: INTRO ==================== -->
+  <section class="panel active" id="panel-intro">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">🌸 Purpose and How to Use</h2>
+          <p class="card-desc">Understanding psychological nature, emotional independence, and genuine capacity for devotional stability.</p>
+        </div>
+      </div>
+
+      <div class="notice-box" style="background: #fef3c7; border-left: 5px solid #d97706; padding: 18px 20px; margin-bottom: 18px;">
+        <div style="font-size:26px;">⚠️</div>
+        <div>
+          <strong style="color: #92400e; font-size: 16px; display: block; margin-bottom: 4px;">Crucial Requirement: Answer Honestly for Perfect Analysis</strong>
+          <span style="font-size: 14.5px; color: #78350f; line-height: 1.55; display: block;">
+            For a true and perfect analysis, you <strong>must answer every question with 100% honesty</strong>. There are no "right", "wrong", or "better" scores—both <em>brahmacārī</em> and <em>gṛhastha</em> āśramas are equally sacred, honourable paths to serve Śrī Kṛṣṇa. An idealized or artificially polished answer will only distort your spiritual direction, whereas genuine, transparent answers ensure your mentor can guide you into the exact environment where you will remain steady, joyful, and spiritually protected.
+          </span>
+        </div>
+      </div>
+
+      <div class="notice-box">
+        <div style="font-size:24px;">💡</div>
+        <div>
+          <strong>Golden Principle:</strong> "Both <em>brahmacārī</em> and <em>gṛhastha</em> āśramas are completely honourable paths meant for serving Śrī Kṛṣṇa. We only want to understand your real nature so you can be joyful, steady, and peaceful in devotional life."
+        </div>
+      </div>
+
+      <div style="font-size: 15px; display: flex; flex-direction: column; gap: 14px; color: var(--text-main);">
+        <p>This assessment helps a counselor discern a young devotee's real-life nature, rather than an idealized sentiment or external pressure to join or marry.</p>
+        
+        <div style="background: var(--surface-subtle); padding: 16px; border-radius: 12px; border: 1px solid var(--border-line);">
+          <h4 style="font-family: var(--font-heading); color: var(--tulasi-deep); margin-bottom: 8px;">Key Guidelines:</h4>
+          <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+            <li><strong>Self-Directed & Private:</strong> The devotee answers Parts A, B, and C alone and with complete honesty.</li>
+            <li><strong>Hidden Scoring:</strong> The scoring rubric is intentionally kept for the mentor only so candidates answer according to actual habits, not what scores "brahmacārī".</li>
+            <li><strong>Respect vs. Dependence:</strong> Loving and respecting parents is a noble virtue. This form measures whether one possesses mature inner conviction to make spiritual decisions without requiring maternal or paternal validation for every step.</li>
+            <li><strong>Compassionate Application:</strong> Never use this assessment to shame a devotee, force renunciation, or alienate families.</li>
+          </ul>
+        </div>
+
+        <div style="text-align: right; margin-top: 10px;">
+          <button type="button" class="btn btn-primary" onclick="switchTab('panel-part-a')">Begin Assessment (Part A) →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PANEL 2: PART A ==================== -->
+  <section class="panel" id="panel-part-a">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">📋 Part A – Basic Details & Living Context</h2>
+          <p class="card-desc">General background, spiritual habits, and family commitments.</p>
+        </div>
+      </div>
+
+      <form id="form-part-a">
+        <h4 style="font-family: var(--font-heading); color: var(--tulasi-deep); margin-bottom: 14px;">Personal Information</h4>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">Full Name <span class="req">*</span></label>
+            <input type="text" id="a_name" placeholder="e.g. Radheshyam Sharma" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Age <span class="req">*</span></label>
+            <input type="number" id="a_age" placeholder="e.g. 23" min="15" max="80" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Current Studies / Occupation</label>
+            <input type="text" id="a_occupation" placeholder="e.g. B.Tech 4th Year / Software Engineer">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Currently Lives With</label>
+            <select id="a_living">
+              <option value="">Select current living situation</option>
+              <option value="Parents / Family">With Parents / Family</option>
+              <option value="College Hostel / P.G.">College Hostel / P.G.</option>
+              <option value="Rented Flat Alone">Rented Flat (Alone)</option>
+              <option value="Rented Flat with Devotees">Rented Flat (with Devotees)</option>
+              <option value="Temple / BVO / Ashrama">Temple / BVO / Ashrama</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Siblings (number, elder/younger)</label>
+            <input type="text" id="a_siblings" placeholder="e.g. 1 elder sister (married), 1 younger brother">
+          </div>
+          <div class="form-group">
+            <label class="form-label">In Contact with ISKCON Since</label>
+            <input type="text" id="a_contact_since" placeholder="e.g. August 2023 (3 years)">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Rounds Chanted Daily</label>
+            <input type="text" id="a_rounds" placeholder="e.g. 16 rounds before 8:30 AM">
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label class="form-label">Name of Mentor / Counselor</label>
+            <input type="text" id="a_mentor" placeholder="e.g. HG Vraja Krishna Das">
+          </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-line); margin: 24px 0;">
+
+        <h4 style="font-family: var(--font-heading); color: var(--tulasi-deep); margin-bottom: 8px;">Practical Duties & Family Situation (Unscored Context)</h4>
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px;">
+          <em>Real duties are distinct from attachment. A sincere candidate may be completely detached yet carry honest responsibilities that necessitate waiting or serving from home.</em>
+        </p>
+
+        <div class="form-group">
+          <label class="form-label">Are you the only son? Who else can care for your parents?</label>
+          <input type="text" id="duty_only_son" placeholder="Describe family structure and elderly care situation">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Are your parents financially dependent on you, now or in the near future?</label>
+          <input type="text" id="duty_financial" placeholder="e.g. Father retired, family requires monthly support">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Does either parent have a chronic / serious medical condition requiring personal care?</label>
+          <input type="text" id="duty_illness" placeholder="Details of medical requirements, if any">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Unfinished academic courses, educational loans, or legal commitments?</label>
+          <input type="text" id="duty_loans" placeholder="e.g. Education loan balance of 3 Lakhs; 1 semester left">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Parents' Present Attitude Toward Full-Time Service</label>
+          <select id="duty_attitude">
+            <option value="">Select their current stance</option>
+            <option value="Supportive & Encouraging">Supportive & Encouraging</option>
+            <option value="Neutral / Tolerant">Neutral / Tolerant</option>
+            <option value="Anxious / Hesitant">Anxious / Hesitant</option>
+            <option value="Opposed">Opposed</option>
+            <option value="Strongly Opposed (Hostile / Threatening)">Strongly Opposed (Hostile / Threatening)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Do you have any medical / physical condition that ashram lifestyle (rising 4 AM, simple food, floor sleeping) would affect?</label>
+          <input type="text" id="duty_health" placeholder="e.g. Back pain, migraine, dietary restrictions">
+        </div>
+
+        <div style="text-align: right; margin-top: 18px;">
+          <button type="button" class="btn btn-primary" onclick="switchTab('panel-part-b')">Proceed to Part B (52 Questions) →</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==================== PANEL 3: PART B ==================== -->
+  <section class="panel" id="panel-part-b">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">🧭 Part B – Real-Life Situations (52 Questions)</h2>
+          <p class="card-desc">Select the option that matches what you <strong>actually do today</strong>, not what you idealize.</p>
+        </div>
+      </div>
+
+      <div class="notice-box" style="background: #fef3c7; border-left: 5px solid #d97706; padding: 16px 18px; margin-bottom: 20px;">
+        <div style="font-size:24px;">🎯</div>
+        <div>
+          <strong style="color: #92400e; font-size: 15.5px; display: block; margin-bottom: 4px;">For Perfect Analysis: Absolute Honesty is Essential</strong>
+          <span style="font-size: 14px; color: #78350f; line-height: 1.5; display: block;">
+            Select the option that matches what you <strong>actually do and experience in reality today</strong>, never what you think you "should" do or what looks best on paper. Your true nature is your friend—being 100% honest here is the single most important prerequisite for receiving genuine spiritual guidance and finding lasting stability in devotional service.
+          </span>
+          <span style="font-size: 13px; color: #92400e; display: block; margin-top: 6px;">
+            <em>Note: Choose one option per question. If none matches exactly, pick the closest one.</em>
+          </span>
+        </div>
+      </div>
+
+      <div id="questions-container">
+        <!-- Dynamically injected categories & questions -->
+      </div>
+
+      <div style="display:flex; justify-content:space-between; margin-top:20px;">
+        <button type="button" class="btn btn-outline" onclick="switchTab('panel-part-a')">← Back to Part A</button>
+        <button type="button" class="btn btn-primary" onclick="switchTab('panel-submit')">Next: Review & Submit →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PANEL 6: SUBMIT ==================== -->
+  <section class="panel" id="panel-submit">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h2 class="card-title">📤 Review & Share Your Assessment</h2>
+          <p class="card-desc">Ensure your answers are complete and share them securely with your mentor.</p>
+        </div>
+      </div>
+
+      <div id="submit-summary-box" style="margin-bottom: 20px;">
+        <!-- Summary stats injected here -->
+      </div>
+
+      <div style="background: var(--surface-subtle); padding: 24px; border-radius: 12px; margin-bottom: 20px; border: 1px solid var(--border-line); text-align: center;">
+        <button type="button" class="btn btn-primary" id="btnOnlineSubmit" onclick="submitAssessmentOnline()" style="font-size: 16.5px; padding: 14px 36px; box-shadow: 0 4px 14px rgba(200, 99, 20, 0.4); min-width: 260px;">
+          🚀 Submit Assessment
+        </button>
+        <p id="share-feedback" style="font-size: 14.5px; font-weight: 600; margin-top: 14px; min-height: 20px;"></p>
+      </div>
+
+      <div class="notice-box">
+        <div style="font-size:20px;">🙏</div>
+        <div>
+          Thank you for completing this self-introspection prayerfully. Your mentor will schedule a peaceful one-to-one discussion to understand your heart and help align your service happily with Śrī Kṛṣṇa.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PANEL 7: MENTOR PORTAL ==================== -->
+  <section class="panel" id="panel-mentor">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h2 class="card-title">🔐 Mentor Diagnostic & Evaluation Portal</h2>
+            <span class="mentor-badge">Parts D & E</span>
+          </div>
+          <p class="card-desc">Comprehensive candidate roster, individual student response analysis (Q1–Q52), gatekeeper checks, and Part E counseling.</p>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button type="button" class="btn btn-outline btn-sm" id="btn-mentor-export-csv" onclick="exportRosterCSV()">📊 Export All (CSV)</button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="window.print()">🖨️ Print Dossier</button>
+        </div>
+      </div>
+
+      <!-- CANDIDATE SELECTOR & QUICK ACTIONS BAR -->
+      <div style="background: var(--surface-subtle); padding: 14px 18px; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border-line); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 280px;">
+          <label style="font-weight: 700; font-size: 14px; color: var(--tulasi-deep); white-space: nowrap;">👤 Student to Inspect:</label>
+          <select id="mentor-candidate-select" onchange="onCandidateSelectChanged(this.value)" style="flex: 1; max-width: 380px; font-weight: 600;">
+            <option value="__current__">Current Active Form (Devotee on Screen)</option>
+          </select>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button type="button" class="btn btn-tulasi btn-sm" id="btn-cloud-sync" onclick="syncFromCloud(true)" title="Pull latest submissions from Google Sheets">☁️ Sync Cloud</button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="toggleWebhookConfig()">⚙️ Google Sheet Sync</button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="toggleImportBox()">📥 Paste Code</button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="toggleRosterView()">👥 Saved Roster (<span id="btn-roster-count">0</span>)</button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="loadSampleCandidate()">🧪 Demo Devotee</button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="exportRosterCSV()">📊 Export CSV</button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="window.print()">🖨️ Print Dossier</button>
+        </div>
+      </div>
+
+      <!-- Collapsible Webhook / Google Sheet Sync Configuration -->
+      <div id="mentor-webhook-box" style="display: none; background: #fdf8f0; border: 1px solid var(--primary-saffron); border-radius: 12px; padding: 18px; margin-bottom: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px;">
+          <h4 style="color: var(--primary-saffron); font-family: var(--font-heading); margin: 0; font-size: 16px;">
+            ☁️ Automatic Cloud Sync with Google Sheets
+          </h4>
+          <button type="button" class="btn btn-outline btn-sm" onclick="toggleWebhookConfig()">✕ Close</button>
+        </div>
+        <p style="font-size: 13.5px; color: var(--text-main); margin-bottom: 12px;">
+          Spreadsheet ID: <code>15aBFnsXSWvwdvsSsjFYgAJq5Hk84B3szhEJhZRuMusY</code> | 
+          <a href="https://docs.google.com/spreadsheets/d/15aBFnsXSWvwdvsSsjFYgAJq5Hk84B3szhEJhZRuMusY/edit" target="_blank" style="color: var(--primary-saffron); font-weight: 600; text-decoration: underline;">Open Google Sheet in New Tab ↗</a>
+        </p>
+        <div style="background: #fff; padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-line); margin-bottom: 14px; font-size: 13px; color: var(--text-muted); line-height: 1.5;">
+          <strong>How to Connect Google Sheet (One-time Setup):</strong><br>
+          1. In your Google Sheet, click <strong>Extensions → Apps Script</strong>.<br>
+          2. Paste the updated code from <code>google_apps_script_code.gs</code> and click <strong>Deploy → New deployment</strong>.<br>
+          3. Choose <strong>Web app</strong>, set <em>Execute as:</em> <strong>Me</strong> and <em>Who has access:</em> <strong>Anyone</strong>, then click <strong>Deploy</strong>.<br>
+          4. Copy the generated Web App URL (starts with <code>https://script.google.com/macros/s/.../exec</code>) and paste it below:
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <input type="url" id="input-webhook-url" placeholder="https://script.google.com/macros/s/AKfycb.../exec" style="flex: 1; min-width: 280px; font-size: 13px;">
+          <button type="button" class="btn btn-tulasi" onclick="saveWebhookUrl()">💾 Save & Connect</button>
+          <button type="button" class="btn btn-outline" onclick="testWebhookConnection()">🔌 Test Connection</button>
+        </div>
+        <div id="webhook-feedback" style="font-size: 13px; font-weight: 600; margin-top: 8px;"></div>
+      </div>
+
+      <!-- Collapsible Import Box -->
+      <div id="mentor-import-box" style="display: none; background: var(--surface-subtle); padding: 16px 18px; border-radius: 12px; margin-bottom: 20px; border: 1px dashed var(--border-line);">
+        <label style="font-size: 14px; font-weight: 700; color: var(--tulasi-deep); display: block; margin-bottom: 4px;">
+          📥 Paste Student Submission(s) (#ASA1|... from WhatsApp or email):
+        </label>
+        <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 8px;">
+          Paste one or multiple candidate messages containing <code>#ASA1|...</code> or JSON. All students will be added to the selector above!
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <textarea id="import-code-input" placeholder="Paste WhatsApp message(s) containing #ASA1|... here" style="min-height: 70px;"></textarea>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <button type="button" class="btn btn-tulasi" onclick="importCandidateCode()">📥 Add to Dashboard</button>
+            <span id="import-feedback" style="font-size: 13px; font-weight: 600; color: var(--primary-saffron);"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsible Roster Table -->
+      <div id="mentor-roster-view" style="display: none; margin-bottom: 24px;">
+        <div class="roster-header-row">
+          <h3 style="font-family: var(--font-heading); color: var(--tulasi-deep); font-size: 18px;">
+            👥 All Saved Candidates
+          </h3>
+          <div style="display: flex; gap: 10px; flex: 1; max-width: 320px;">
+            <input type="search" id="roster-search" placeholder="Search by name or mentor..." oninput="renderRosterTable()">
+          </div>
+        </div>
+        <div style="overflow-x: auto; border: 1px solid var(--border-line); border-radius: 12px; margin-bottom: 16px;">
+          <table class="roster-table">
+            <thead>
+              <tr>
+                <th>Candidate</th>
+                <th>Age / Living</th>
+                <th>Daily Rounds</th>
+                <th>Score</th>
+                <th>Indication</th>
+                <th>Gatekeeper Status</th>
+                <th style="text-align: right;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="roster-tbody">
+              <!-- Injected by script -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- MAIN DETAIL VIEW: INDIVIDUAL STUDENT RESPONSE INSPECTOR (VISIBLE BY DEFAULT) -->
+      <div id="mentor-detail-view" style="display: block;">
+        <!-- Active Candidate Header Banner -->
+        <div style="background: linear-gradient(135deg, var(--surface-subtle) 0%, var(--surface-card) 100%); border: 1px solid var(--border-line); border-left: 5px solid var(--primary-saffron); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h2 id="detail-candidate-name" style="font-family: var(--font-heading); font-size: 24px; color: var(--tulasi-deep); margin-bottom: 4px;">Candidate Name</h2>
+              <div id="detail-candidate-meta" style="font-size: 13.5px; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 12px;">
+                <!-- Meta tags injected here -->
+              </div>
+            </div>
+            <div id="detail-date-badge" style="font-size: 12px; color: var(--text-muted); font-weight: 600;">Status: Active</div>
+          </div>
+        </div>
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px;">
+            <div>
+              <h2 id="detail-candidate-name" style="font-family: var(--font-heading); font-size: 24px; color: var(--tulasi-deep); margin-bottom: 4px;">Candidate Name</h2>
+              <div id="detail-candidate-meta" style="font-size: 13.5px; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 12px;">
+                <!-- Meta tags injected here -->
+              </div>
+            </div>
+            <div id="detail-date-badge" style="font-size: 12px; color: var(--text-muted); font-weight: 600;">Submitted: —</div>
+          </div>
+        </div>
+
+        <!-- Score Overview Cards -->
+        <div class="score-hero-grid">
+          <div class="score-card total">
+            <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 600;">Total Score</div>
+            <div class="big-num" id="mentor-total-score">0 <span style="font-size: 20px; font-weight: normal; color: var(--text-muted);">/ 104</span></div>
+            <div style="font-size: 13px; color: var(--text-muted);" id="mentor-completion-pill">0 of 52 answered</div>
+          </div>
+
+          <div class="score-card recommendation" id="rec-card-container">
+            <div style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); font-weight: 600;">Primary Indication</div>
+            <div class="rec-status" id="mentor-rec-title">Awaiting Answers</div>
+            <div style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;" id="mentor-rec-desc">Analysis overview</div>
+          </div>
+
+
+        </div>
+
+        <!-- Gatekeeper Alerts Box -->
+        <div id="gatekeeper-alerts-box" style="margin-bottom: 20px;"></div>
+
+        <!-- Diagnostic Flags -->
+        <h4 style="font-family: var(--font-heading); color: var(--tulasi-deep); margin: 20px 0 10px;">🚨 Psycho-Spiritual Diagnostic Flags</h4>
+        <div id="behavior-flags-box" style="margin-bottom: 24px;"></div>
+
+        <!-- 13 Dimension Detailed Score Breakdown -->
+        <h4 style="font-family: var(--font-heading); color: var(--tulasi-deep); margin: 20px 0 10px;">📊 Dimension-by-Dimension Breakdown (13 Areas)</h4>
+        <div style="overflow-x: auto; margin-bottom: 24px;">
+          <table class="area-score-table">
+            <thead>
+              <tr>
+                <th>Dimension</th>
+                <th>Questions</th>
+                <th>Score</th>
+                <th>Status / Benchmark</th>
+              </tr>
+            </thead>
+            <tbody id="area-scores-tbody">
+              <!-- Injected by script -->
+            </tbody>
+          </table>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-line); margin: 28px 0;">
+
+        <!-- ==================== NEW: 52 QUESTIONS DETAILED RESPONSE ANALYSIS ==================== -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+          <div>
+            <h3 style="font-family: var(--font-heading); color: var(--tulasi-deep); font-size: 20px; display: flex; align-items: center; gap: 8px;">
+              🔍 Individual Question-by-Question Response Audit (All 52 Questions)
+            </h3>
+            <p style="font-size: 13.5px; color: var(--text-muted); margin-top: 2px;">
+              Examine the candidate's exact chosen answer and points awarded for every single scenario.
+            </p>
+          </div>
+        </div>
+
+        <!-- Filter Chips -->
+        <div class="filter-chips-bar" id="audit-filter-chips">
+          <button type="button" class="filter-chip active" data-filter="all" onclick="filterAuditTable('all')">Show All 52</button>
+          <button type="button" class="filter-chip" data-filter="score0" onclick="filterAuditTable('score0')">🔴 0-Point Answers Only (Struggle / Concern)</button>
+          <button type="button" class="filter-chip" data-filter="score1" onclick="filterAuditTable('score1')">🟡 1-Point Answers (Developing)</button>
+          <button type="button" class="filter-chip" data-filter="score2" onclick="filterAuditTable('score2')">🟢 2-Point Answers (Brahmacārī Fit)</button>
+          <button type="button" class="filter-chip" data-filter="gatekeeper" onclick="filterAuditTable('gatekeeper')">⚠️ Gatekeeper Questions (Areas 1, 2, 4, 9)</button>
+        </div>
+
+        <div style="overflow-x: auto; border: 1px solid var(--border-line); border-radius: 12px; margin-bottom: 26px;">
+          <table class="audit-table">
+            <thead>
+              <tr>
+                <th style="width: 14%;"># & Area</th>
+                <th style="width: 44%;">Scenario / Question</th>
+                <th style="width: 32%;">Candidate's Chosen Response</th>
+                <th style="width: 10%; text-align: center;">Score</th>
+              </tr>
+            </thead>
+            <tbody id="student-audit-tbody">
+              <!-- Injected by script -->
+            </tbody>
+          </table>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-line); margin: 28px 0;">
+
+        <!-- ==================== PRACTICAL DUTIES & LIVING CONTEXT ==================== -->
+        <h3 style="font-family: var(--font-heading); color: var(--tulasi-deep); font-size: 20px; margin-bottom: 6px;">
+          📋 Practical Family Duties & Health Context
+        </h3>
+        <div id="student-duties-container" style="background: var(--surface-subtle); padding: 18px; border-radius: 12px; border: 1px solid var(--border-line); margin-bottom: 26px;">
+          <!-- Injected by script -->
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid var(--border-line); margin: 28px 0;">
+
+        <!-- ==================== PART E: MENTOR OBSERVATION & EVALUATION ==================== -->
+        <div class="card-header" style="padding-bottom: 6px;">
+          <h3 class="card-title" style="font-size: 19px;">📝 Part E – Mentor's 1-on-1 Observation & Synthesis</h3>
+        </div>
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px;">
+          Notes and final decision recorded for this candidate during or after the private counseling interview.
+        </p>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label">How he speaks about his parents (respect vs fear vs independence)</label>
+            <textarea id="obs_parents" placeholder="Notes on filial attachment and psychological separation"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Real decisions taken against parental pressure (if any)</label>
+            <textarea id="obs_decision" placeholder="Evidence of moral courage under opposition"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">How he reacts when corrected or reprimanded</label>
+            <textarea id="obs_correction" placeholder="Humility, defense mechanism, resentment, or openness"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Behavior with opposite sex & talk about marriage</label>
+            <textarea id="obs_opposite_sex" placeholder="Natural inclinations, agitation, or healthy steadiness"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Sādhana consistency over the past 3 months</label>
+            <textarea id="obs_sadhana" placeholder="Rising time, attentive rounds, reading habits"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Observed during short ashram stay (adjustment, seva, peer relations)</label>
+            <textarea id="obs_stay" placeholder="Tolerance of discomfort, eagerness for menial seva"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Inputs from senior devotees who know him closely</label>
+            <textarea id="obs_seniors" placeholder="Their perspective on his reliability and temperament"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Parental perspective (if appropriate to contact them)</label>
+            <textarea id="obs_family" placeholder="Willingness, anxieties, emotional leverage"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 14px;">
+          <label class="form-label"><strong>Behavioral Consistency Check:</strong> Do his written answers match his real-life actions?</label>
+          <textarea id="obs_consistency" placeholder="Trust actions and track record over theoretical answers..."></textarea>
+        </div>
+
+        <div style="background: var(--surface-subtle); padding: 18px; border-radius: 12px; margin-top: 20px; border: 1px solid var(--border-line);">
+          <h4 style="font-family: var(--font-heading); color: var(--tulasi-deep); margin-bottom: 12px;">Final Mentor Recommendation</h4>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <label class="option-label">
+              <input type="radio" name="mentor_rec" value="Brahmacari Trial">
+              <span><strong>Brahmacārī Nature:</strong> Arrange 1–2 week intensive trial stay in the ashram</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="mentor_rec" value="90-Day Sadhana Plan">
+              <span><strong>Not Yet Clear / Forming:</strong> Assign 90-day targeted improvement plan; re-evaluate</span>
+            </label>
+            <label class="option-label">
+              <input type="radio" name="mentor_rec" value="Grihastha Guidance">
+              <span><strong>Gṛhastha Nature:</strong> Encourage honorable Kṛṣṇa-conscious family life with strong temple seva</span>
+            </label>
+          </div>
+
+          <div class="form-grid-2" style="margin-top: 16px;">
+            <div class="form-group">
+              <label class="form-label">Key Growth Areas to Work On</label>
+              <input type="text" id="mentor_areas_work" placeholder="e.g. Early rising, handling loneliness in prayer">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Next Scheduled Review Date</label>
+              <input type="date" id="mentor_next_review">
+            </div>
+            <div class="form-group" style="grid-column: 1 / -1;">
+              <label class="form-label">Mentor's Name, Center & Signature Confirmation</label>
+              <input type="text" id="mentor_sign" placeholder="e.g. HG Govinda Das, ISKCON Youth Forum">
+            </div>
+          </div>
+
+          <div style="margin-top: 16px; text-align: right; display: flex; justify-content: flex-end; gap: 10px;">
+            <button type="button" class="btn btn-outline" onclick="showRosterView()">← Back to Roster</button>
+            <button type="button" class="btn btn-tulasi" onclick="saveMentorAssessment()">💾 Save Counselor Evaluation for this Student</button>
+            <button type="button" class="btn btn-outline" onclick="window.print()">🖨️ Print Student Report</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<!-- Sticky Bottom Progress & Action Bar -->
+<div class="sticky-footer" id="stickyFooter">
+  <div class="footer-wrap">
+    <div class="progress-container">
+      <div class="progress-meta">
+        <span id="footer-answered-text">0 of 52 questions answered</span>
+        <span id="footer-pct-text">0%</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="footer-progress-fill"></div>
+      </div>
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <button type="button" class="btn btn-outline no-print" onclick="autoSaveNotification()">💾 Save</button>
+      <button type="button" class="btn btn-primary no-print" id="footerNextBtn" onclick="navigateNext()">Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Mentor PIN Modal -->
+<div class="pin-dialog" id="pinModal">
+  <div class="pin-content">
+    <div style="font-size: 32px; margin-bottom: 8px;">🔐</div>
+    <h3 style="font-family: var(--font-heading); color: var(--tulasi-deep); margin-bottom: 6px;">Mentor Access</h3>
+    <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px;">
+      Enter mentor PIN to view confidential scoring, diagnostics, and Part E.
+    </p>
+    <input type="password" id="pinInput" placeholder="Enter PIN (Default: 108)" style="text-align: center; font-size: 18px; letter-spacing: 0.2em; margin-bottom: 14px;">
+    <div style="display: flex; gap: 8px; justify-content: center;">
+      <button type="button" class="btn btn-outline" onclick="closePinModal()">Cancel</button>
+      <button type="button" class="btn btn-tulasi" onclick="verifyPin()">Unlock Portal</button>
+    </div>
+    <p id="pin-error" style="color: #dc2626; font-size: 12.5px; margin-top: 10px; display: none;">Invalid PIN. (Default is 108)</p>
+  </div>
+</div>
+
+<script>
+/* ==========================================================
+   DATA STRUCTURES: QUESTIONS, CATEGORIES & SCORING RULES
+   ========================================================== */
+
+const CATEGORIES = [
+  { id: 1, name: "Emotional attachment to parents", isGatekeeper: true, qRange: [1, 4] },
+  { id: 2, name: "Dependence on parents for decisions", isGatekeeper: true, qRange: [5, 8] },
+  { id: 3, name: "Standing firm under pressure", isGatekeeper: false, qRange: [9, 12] },
+  { id: 4, name: "Inclination toward married life", isGatekeeper: true, qRange: [13, 16] },
+  { id: 5, name: "Attachment to comfort, money and status", isGatekeeper: false, qRange: [17, 20] },
+  { id: 6, name: "Tolerance for austerity", isGatekeeper: false, qRange: [21, 24] },
+  { id: 7, name: "Fitness for community life and authority", isGatekeeper: false, qRange: [25, 28] },
+  { id: 8, name: "Real motive for joining", isGatekeeper: false, qRange: [29, 32] },
+  { id: 9, name: "Sense control and the opposite sex", isGatekeeper: true, qRange: [33, 36] },
+  { id: 10, name: "Self-discipline and steadiness", isGatekeeper: false, qRange: [37, 40] },
+  { id: 11, name: "Attachment to friends, social life and recognition", isGatekeeper: false, qRange: [41, 44] },
+  { id: 12, name: "Follow-through on the aspiration", isGatekeeper: false, qRange: [45, 48] },
+  { id: 13, name: "Hidden dependence and emotional needs", isGatekeeper: false, qRange: [49, 52] }
+];
+
+const QUESTIONS = [
+  // Cat 1: Emotional attachment to parents
+  {
+    id: 1, cat: 1,
+    text: "You are on a 10-day yatra with devotees. How often do you feel the need to call home?",
+    options: [
+      { key: "a", text: "Every day, sometimes several times; I feel restless if I can't" },
+      { key: "b", text: "Once every 2–3 days, just to tell them I'm fine" },
+      { key: "c", text: "Once or twice in the whole yatra; I'm absorbed in it" }
+    ]
+  },
+  {
+    id: 2, cat: 1,
+    text: "Your mother says with tears, \"If you join the ashram, who will look after us?\" What happens inside you?",
+    options: [
+      { key: "a", text: "I feel compassion but stay clear; I would explain gently and see how they can be cared for" },
+      { key: "b", text: "I feel guilty and confused for many days" },
+      { key: "c", text: "I drop the idea at once; I cannot see her cry" }
+    ]
+  },
+  {
+    id: 3, cat: 1,
+    text: "Imagine living in the ashram and visiting home only 2–3 times a year. How do you feel?",
+    options: [
+      { key: "a", text: "Very difficult; I don't think I can stay away that long" },
+      { key: "b", text: "Peaceful; that is enough" },
+      { key: "c", text: "Hard at first, but I would slowly adjust" }
+    ]
+  },
+  {
+    id: 4, cat: 1,
+    text: "When you have a problem or feel low, whom do you go to first?",
+    options: [
+      { key: "a", text: "My mother or father" },
+      { key: "b", text: "Krishna in prayer, then my mentor or senior devotees" },
+      { key: "c", text: "Sometimes my parents, sometimes devotees" }
+    ]
+  },
+
+  // Cat 2: Dependence on parents for decisions
+  {
+    id: 5, cat: 2,
+    text: "When you buy a shirt or shoes for yourself:",
+    options: [
+      { key: "a", text: "I decide myself" },
+      { key: "b", text: "I decide, but sometimes ask their opinion" },
+      { key: "c", text: "I ask my parents, or they choose and buy it for me" }
+    ]
+  },
+  {
+    id: 6, cat: 2,
+    text: "How was your college course or job chosen?",
+    options: [
+      { key: "a", text: "My parents decided and I followed" },
+      { key: "b", text: "I chose after discussing it with them" },
+      { key: "c", text: "I chose by my own conviction, even though they did not fully agree" }
+    ]
+  },
+  {
+    id: 7, cat: 2,
+    text: "A senior devotee invites you to a weekend retreat. You:",
+    options: [
+      { key: "a", text: "Accept, and inform your parents" },
+      { key: "b", text: "Ask permission, and go only if they say yes" },
+      { key: "c", text: "Ask them, and if they hesitate, try to convince them" }
+    ]
+  },
+  {
+    id: 8, cat: 2,
+    text: "In the last 6 months, how many decisions (even small ones) have you taken that your parents did not like?",
+    options: [
+      { key: "a", text: "None" },
+      { key: "b", text: "One or two" },
+      { key: "c", text: "Several, done respectfully, for spiritual reasons" }
+    ]
+  },
+
+  // Cat 3: Standing firm under pressure
+  {
+    id: 9, cat: 3,
+    text: "Your parents insist that you eat at a relative's function where the food is not prasādam. You:",
+    options: [
+      { key: "a", text: "Eat it to avoid trouble" },
+      { key: "b", text: "Politely avoid it: take fruit, or carry prasādam with you" },
+      { key: "c", text: "Feel very uncomfortable and sometimes give in" }
+    ]
+  },
+  {
+    id: 10, cat: 3,
+    text: "Friends or relatives mock your tilak or your chanting. You:",
+    options: [
+      { key: "a", text: "Remove the tilak or hide your beads" },
+      { key: "b", text: "Continue calmly; it doesn't disturb you much" },
+      { key: "c", text: "Continue, but feel disturbed for a long time" }
+    ]
+  },
+  {
+    id: 11, cat: 3,
+    text: "Your parents strongly forbid you to visit the temple for a month. You:",
+    options: [
+      { key: "a", text: "Obey completely" },
+      { key: "b", text: "Keep your sādhana at home and keep visiting, respectfully explaining why" },
+      { key: "c", text: "Keep your sādhana at home but stop visiting" }
+    ]
+  },
+  {
+    id: 12, cat: 3,
+    text: "Have you ever held to a spiritual decision for months despite family pressure?",
+    options: [
+      { key: "a", text: "Yes, and I am still holding to it" },
+      { key: "b", text: "I tried, but gave up" },
+      { key: "c", text: "I have never faced such a situation" }
+    ]
+  },
+
+  // Cat 4: Inclination toward married life
+  {
+    id: 13, cat: 4,
+    text: "When you see a happy devotee couple with children, you feel:",
+    options: [
+      { key: "a", text: "\"I wish I had that\"" },
+      { key: "b", text: "Happy for them, with no personal pull" },
+      { key: "c", text: "Sometimes I imagine it for myself" }
+    ]
+  },
+  {
+    id: 14, cat: 4,
+    text: "How often do you think about marriage or a life partner?",
+    options: [
+      { key: "a", text: "Rarely or never" },
+      { key: "b", text: "Sometimes" },
+      { key: "c", text: "Often" }
+    ]
+  },
+  {
+    id: 15, cat: 4,
+    text: "Your picture of a peaceful future is:",
+    options: [
+      { key: "a", text: "My own home, wife and children, with Deity worship at home" },
+      { key: "b", text: "A simple life fully given to preaching and service among devotees" },
+      { key: "c", text: "Not sure; both attract me" }
+    ]
+  },
+  {
+    id: 16, cat: 4,
+    text: "Living your whole life without a close personal companion feels:",
+    options: [
+      { key: "a", text: "Natural; it gives freedom for service" },
+      { key: "b", text: "Lonely and frightening" },
+      { key: "c", text: "Possible by Krishna's mercy, but I have doubts" }
+    ]
+  },
+
+  // Cat 5: Attachment to comfort, money and status
+  {
+    id: 17, cat: 5,
+    text: "You are offered a high-paying job, or full-time service with only basic needs met. You choose:",
+    options: [
+      { key: "a", text: "The job, and serve on the side" },
+      { key: "b", text: "Full-time service, without hesitation" },
+      { key: "c", text: "I'm confused; I want both" }
+    ]
+  },
+  {
+    id: 18, cat: 5,
+    text: "Your phone, internet and entertainment:",
+    options: [
+      { key: "a", text: "I can stop entertainment easily; I use the phone only when needed" },
+      { key: "b", text: "I have reduced it, but still struggle" },
+      { key: "c", text: "It is hard to spend even one day without them" }
+    ]
+  },
+  {
+    id: 19, cat: 5,
+    text: "Owning things (a bike, gadgets, good clothes) is:",
+    options: [
+      { key: "a", text: "Important to me" },
+      { key: "b", text: "Nice, but not necessary" },
+      { key: "c", text: "Of no interest to me" }
+    ]
+  },
+  {
+    id: 20, cat: 5,
+    text: "Relatives may say, \"He wasted his education.\" How much would this bother you?",
+    options: [
+      { key: "a", text: "A lot; I want them to see me successful" },
+      { key: "b", text: "A little" },
+      { key: "c", text: "Not at all; pleasing Krishna is what matters" }
+    ]
+  },
+
+  // Cat 6: Tolerance for austerity
+  {
+    id: 21, cat: 6,
+    text: "Rising at 4 am every day, including winter and after late service:",
+    options: [
+      { key: "a", text: "I already do it" },
+      { key: "b", text: "I manage it sometimes" },
+      { key: "c", text: "Very difficult for me" }
+    ]
+  },
+  {
+    id: 22, cat: 6,
+    text: "Simple food at fixed times, with no outside snacks or restaurants:",
+    options: [
+      { key: "a", text: "Hard; I enjoy variety and tasty food" },
+      { key: "b", text: "Fine for me" },
+      { key: "c", text: "Okay, with occasional cravings" }
+    ]
+  },
+  {
+    id: 23, cat: 6,
+    text: "Hot weather, sleeping on a mat, cold baths:",
+    options: [
+      { key: "a", text: "I need my comforts" },
+      { key: "b", text: "I can tolerate them" },
+      { key: "c", text: "For a few days only" }
+    ]
+  },
+  {
+    id: 24, cat: 6,
+    text: "When you are sick or tired, you expect:",
+    options: [
+      { key: "a", text: "Someone to look after me the way my mother does" },
+      { key: "b", text: "To manage myself, and ask for help only when really needed" },
+      { key: "c", text: "Some care; I feel bad if no one notices" }
+    ]
+  },
+
+  // Cat 7: Fitness for community life and authority
+  {
+    id: 25, cat: 7,
+    text: "A senior devotee corrects you in front of others, perhaps unfairly. You:",
+    options: [
+      { key: "a", text: "Feel hurt and avoid him afterwards" },
+      { key: "b", text: "Argue, or think of leaving" },
+      { key: "c", text: "Accept it humbly and clarify privately later" }
+    ]
+  },
+  {
+    id: 26, cat: 7,
+    text: "Sharing a room and bathroom with 8–10 devotees of different natures:",
+    options: [
+      { key: "a", text: "Comfortable" },
+      { key: "b", text: "Manageable" },
+      { key: "c", text: "Very uncomfortable" }
+    ]
+  },
+  {
+    id: 27, cat: 7,
+    text: "You are given a service you dislike (cleaning, washing pots) for several months. You:",
+    options: [
+      { key: "a", text: "Do it, but complain inside" },
+      { key: "b", text: "Do it willingly" },
+      { key: "c", text: "Ask to change it, or stop coming" }
+    ]
+  },
+  {
+    id: 28, cat: 7,
+    text: "Following a fixed schedule set by others, with little personal time:",
+    options: [
+      { key: "a", text: "I would feel suffocated" },
+      { key: "b", text: "I like it; it gives discipline" },
+      { key: "c", text: "Mostly okay" }
+    ]
+  },
+
+  // Cat 8: Real motive for joining
+  {
+    id: 29, cat: 8,
+    text: "The main reason you want to join the ashram:",
+    options: [
+      { key: "a", text: "To get away from problems at home, in studies or at work" },
+      { key: "b", text: "To give my whole life to Krishna and preaching" },
+      { key: "c", text: "I am inspired by the devotees; I love the atmosphere" }
+    ]
+  },
+  {
+    id: 30, cat: 8,
+    text: "When did this desire start, and how has it stayed?",
+    options: [
+      { key: "a", text: "Long ago, and it has stayed steady even in difficult times" },
+      { key: "b", text: "It comes strongly after festivals or yatras and fades at home" },
+      { key: "c", text: "Recently, after a disappointment in life" }
+    ]
+  },
+  {
+    id: 31, cat: 8,
+    text: "The temple authorities tell you, \"Wait one more year.\" You:",
+    options: [
+      { key: "a", text: "Lose interest" },
+      { key: "b", text: "Feel disappointed, but accept" },
+      { key: "c", text: "Accept, and use the year to prepare" }
+    ]
+  },
+  {
+    id: 32, cat: 8,
+    text: "If you never join the ashram, will you still chant 16 rounds and serve?",
+    options: [
+      { key: "a", text: "Probably not; it is the ashram that attracts me" },
+      { key: "b", text: "Yes, definitely" },
+      { key: "c", text: "I would try, but would find it hard" }
+    ]
+  },
+
+  // Cat 9: Sense control and the opposite sex
+  {
+    id: 33, cat: 9,
+    text: "How do you interact with girls or women in college, at work or at family functions?",
+    options: [
+      { key: "a", text: "Freely; I have close friendships and chat often" },
+      { key: "b", text: "Only when needed, briefly and respectfully" },
+      { key: "c", text: "I try to limit it, but often get drawn into chatting" }
+    ]
+  },
+  {
+    id: 34, cat: 9,
+    text: "When attraction or disturbing thoughts arise, you:",
+    options: [
+      { key: "a", text: "Chant, pray or change activity, and it passes" },
+      { key: "b", text: "Struggle for a long time; it disturbs my sādhana" },
+      { key: "c", text: "Sometimes manage, sometimes not" }
+    ]
+  },
+  {
+    id: 35, cat: 9,
+    text: "Your use of the internet and social media in private:",
+    options: [
+      { key: "a", text: "Fully controlled; I avoid whatever disturbs the mind" },
+      { key: "b", text: "I often watch things I regret afterwards" },
+      { key: "c", text: "Mostly controlled, with occasional slips" }
+    ]
+  },
+  {
+    id: 36, cat: 9,
+    text: "If you had to avoid all one-to-one contact and chatting with the opposite sex for life:",
+    options: [
+      { key: "a", text: "Very difficult; I don't think I can" },
+      { key: "b", text: "Hard, but I would try" },
+      { key: "c", text: "Easy; I already live like that" }
+    ]
+  },
+
+  // Cat 10: Self-discipline and steadiness
+  {
+    id: 37, cat: 10,
+    text: "When no one is watching (holidays, at home, travelling), your sādhana:",
+    options: [
+      { key: "a", text: "Drops a lot" },
+      { key: "b", text: "Stays the same" },
+      { key: "c", text: "Drops a little" }
+    ]
+  },
+  {
+    id: 38, cat: 10,
+    text: "Things you started in the past (a vow, a course, a service, a sport):",
+    options: [
+      { key: "a", text: "I usually finish what I start" },
+      { key: "b", text: "I often leave things halfway" },
+      { key: "c", text: "Sometimes I finish, sometimes I leave" }
+    ]
+  },
+  {
+    id: 39, cat: 10,
+    text: "Your daily energy and work:",
+    options: [
+      { key: "a", text: "I sleep long and tend to be lazy" },
+      { key: "b", text: "I can work hard for long hours" },
+      { key: "c", text: "I work well only when I'm in the mood" }
+    ]
+  },
+  {
+    id: 40, cat: 10,
+    text: "Your mood over a typical month:",
+    options: [
+      { key: "a", text: "Mostly steady and enthusiastic" },
+      { key: "b", text: "It goes up and down; low days affect my sādhana" },
+      { key: "c", text: "Often very low or lonely; I need someone to lift me" }
+    ]
+  },
+
+  // Cat 11: Friends, social life and recognition
+  {
+    id: 41, cat: 11,
+    text: "Your school or college friends who are not devotees:",
+    options: [
+      { key: "a", text: "I meet them often; they are a big part of my life" },
+      { key: "b", text: "I keep only polite contact" },
+      { key: "c", text: "I meet them sometimes and enjoy it" }
+    ]
+  },
+  {
+    id: 42, cat: 11,
+    text: "Birthday parties, outings, cricket matches or movies with friends:",
+    options: [
+      { key: "a", text: "I miss them if I can't go" },
+      { key: "b", text: "I go occasionally" },
+      { key: "c", text: "I have given them up without difficulty" }
+    ]
+  },
+  {
+    id: 43, cat: 11,
+    text: "Your old friends stop calling because you have become a devotee. You feel:",
+    options: [
+      { key: "a", text: "Badly hurt; I would try to win them back" },
+      { key: "b", text: "A little sad, but at peace" },
+      { key: "c", text: "It doesn't matter; devotees are my friends now" }
+    ]
+  },
+  {
+    id: 44, cat: 11,
+    text: "Your desire to be noticed, praised or given a position:",
+    options: [
+      { key: "a", text: "Strong; I feel bad when others get the credit" },
+      { key: "b", text: "It is there, but I am working on it" },
+      { key: "c", text: "Little; I am happy serving in the background" }
+    ]
+  },
+
+  // Cat 12: Follow-through on the aspiration
+  {
+    id: 45, cat: 12,
+    text: "After a deeply inspiring camp or yatra, you feel a strong desire to join the ashram. You:",
+    options: [
+      { key: "a", text: "Announce at once that you will join, but the enthusiasm usually fades afterwards" },
+      { key: "b", text: "Reflect on it, learn about the practical lifestyle, and test the desire through small commitments" },
+      { key: "c", text: "Stay inspired, but take little action because you are still unsure" }
+    ]
+  },
+  {
+    id: 46, cat: 12,
+    text: "You have been talking about joining the brahmacārī ashram for several months. So far you have:",
+    options: [
+      { key: "a", text: "Mostly kept talking about it, without practical steps" },
+      { key: "b", text: "Taken some small steps, but not consistently" },
+      { key: "c", text: "Made concrete changes on your own and tried the lifestyle practically" }
+    ]
+  },
+  {
+    id: 47, cat: 12,
+    text: "A weekend stay in the ashram is available, and it does not clash with any important duty. You:",
+    options: [
+      { key: "a", text: "Feel interested, but hesitate because it is unfamiliar" },
+      { key: "b", text: "Prefer not to go; you don't really want to try ashram life now" },
+      { key: "c", text: "Would like to go and see the routine for yourself" }
+    ]
+  },
+  {
+    id: 48, cat: 12,
+    text: "Your mentor asks you to choose one realistic improvement for the next 30 days. You:",
+    options: [
+      { key: "a", text: "Choose one, follow it, and report the result honestly" },
+      { key: "b", text: "Agree, but often don't begin, or don't review how it went" },
+      { key: "c", text: "Are willing, but need help making a realistic plan" }
+    ]
+  },
+
+  // Cat 13: Hidden dependence and emotional needs
+  {
+    id: 49, cat: 13,
+    text: "You have carefully thought over a personal decision, but your parents disagree. What usually happens?",
+    options: [
+      { key: "a", text: "I change my decision, because their unhappiness is too hard for me to bear" },
+      { key: "b", text: "I try to reach an understanding, but often stay confused or postpone deciding" },
+      { key: "c", text: "I listen, discuss their concerns, and can decide independently while respecting my real duties" }
+    ]
+  },
+  {
+    id: 50, cat: 13,
+    text: "During a long stay away from home, managing your own routine (waking up, washing clothes, keeping things in order, handling money):",
+    options: [
+      { key: "a", text: "I manage well, and ask for help when needed" },
+      { key: "b", text: "Very difficult; at home my parents take care of these things" },
+      { key: "c", text: "I manage many things, but need support while adjusting" }
+    ]
+  },
+  {
+    id: 51, cat: 13,
+    text: "After a difficult day, when you feel lonely, you:",
+    options: [
+      { key: "a", text: "Feel that only a wife or close companion could fill that need" },
+      { key: "b", text: "Try different things, but are unsure about your long-term emotional needs" },
+      { key: "c", text: "Turn to chanting, prayer, your mentor or devotee friends, and it passes" }
+    ]
+  },
+  {
+    id: 52, cat: 13,
+    text: "Your mentor tells you that the brahmacārī and gṛhastha āśramas are both honourable paths. You:",
+    options: [
+      { key: "a", text: "Appreciate the freedom, and still feel drawn to the brahmacārī ashram" },
+      { key: "b", text: "Feel relieved, and would prefer gṛhastha life" },
+      { key: "c", text: "Appreciate the freedom, but remain unsure" }
+    ]
+  }
+];
+
+// SCORING KEY MAPPING: [2 points, 1 point, 0 points]
+const SCORING_KEY = {
+  1:  { c: 2, b: 1, a: 0 },
+  2:  { a: 2, b: 1, c: 0 },
+  3:  { b: 2, c: 1, a: 0 },
+  4:  { b: 2, c: 1, a: 0 },
+  5:  { a: 2, b: 1, c: 0 },
+  6:  { c: 2, b: 1, a: 0 },
+  7:  { a: 2, c: 1, b: 0 },
+  8:  { c: 2, b: 1, a: 0 },
+  9:  { b: 2, c: 1, a: 0 },
+  10: { b: 2, c: 1, a: 0 },
+  11: { b: 2, c: 1, a: 0 },
+  12: { a: 2, c: 1, b: 0 },
+  13: { b: 2, c: 1, a: 0 },
+  14: { a: 2, b: 1, c: 0 },
+  15: { b: 2, c: 1, a: 0 },
+  16: { a: 2, c: 1, b: 0 },
+  17: { b: 2, c: 1, a: 0 },
+  18: { a: 2, b: 1, c: 0 },
+  19: { c: 2, b: 1, a: 0 },
+  20: { c: 2, b: 1, a: 0 },
+  21: { a: 2, b: 1, c: 0 },
+  22: { b: 2, c: 1, a: 0 },
+  23: { b: 2, c: 1, a: 0 },
+  24: { b: 2, c: 1, a: 0 },
+  25: { c: 2, a: 1, b: 0 },
+  26: { a: 2, b: 1, c: 0 },
+  27: { b: 2, a: 1, c: 0 },
+  28: { b: 2, c: 1, a: 0 },
+  29: { b: 2, c: 1, a: 0 },
+  30: { a: 2, b: 1, c: 0 },
+  31: { c: 2, b: 1, a: 0 },
+  32: { b: 2, c: 1, a: 0 },
+  33: { b: 2, c: 1, a: 0 },
+  34: { a: 2, c: 1, b: 0 },
+  35: { a: 2, c: 1, b: 0 },
+  36: { c: 2, b: 1, a: 0 },
+  37: { b: 2, c: 1, a: 0 },
+  38: { a: 2, c: 1, b: 0 },
+  39: { b: 2, c: 1, a: 0 },
+  40: { a: 2, b: 1, c: 0 },
+  41: { b: 2, c: 1, a: 0 },
+  42: { c: 2, b: 1, a: 0 },
+  43: { c: 2, b: 1, a: 0 },
+  44: { c: 2, b: 1, a: 0 },
+  45: { b: 2, c: 1, a: 0 },
+  46: { c: 2, b: 1, a: 0 },
+  47: { c: 2, a: 1, b: 0 },
+  48: { a: 2, c: 1, b: 0 },
+  49: { c: 2, b: 1, a: 0 },
+  50: { a: 2, c: 1, b: 0 },
+  51: { c: 2, b: 1, a: 0 },
+  52: { a: 2, c: 1, b: 0 }
+};
+
+const PART_C_PROMPTS = [
+  "Describe one recent decision you took entirely by yourself. Did you inform your parents before or after?",
+  "Which things do your parents still decide for you, even now?",
+  "What would your parents say and do if you told them tomorrow that you are joining the ashram? How would you respond?",
+  "Which part of home life would you miss the most?",
+  "Describe a hard difficulty you faced. How did you handle it, and who helped you?",
+  "What do you imagine a full day in the ashram looks like, from waking to sleeping?",
+  "What is the one thing that stops you from taking the next step right now?",
+  "Apart from the ashram, how else could you serve Krishna fully?",
+  "Which three questions in this form were hardest to answer, and why?",
+  "Which of your answers show habits you genuinely want to change?"
+];
+
+/* ==========================================================
+   STATE & PERSISTENCE
+   ========================================================== */
+
+let isMentorUnlocked = false;
+const STORAGE_KEY = "asrama_assessment_v1";
+
+function getFormData() {
+  const data = {
+    a: {
+      name: document.getElementById("a_name")?.value || "",
+      age: document.getElementById("a_age")?.value || "",
+      occupation: document.getElementById("a_occupation")?.value || "",
+      living: document.getElementById("a_living")?.value || "",
+      siblings: document.getElementById("a_siblings")?.value || "",
+      contact_since: document.getElementById("a_contact_since")?.value || "",
+      rounds: document.getElementById("a_rounds")?.value || "",
+      mentor: document.getElementById("a_mentor")?.value || ""
+    },
+    duties: {
+      only_son: document.getElementById("duty_only_son")?.value || "",
+      financial: document.getElementById("duty_financial")?.value || "",
+      illness: document.getElementById("duty_illness")?.value || "",
+      loans: document.getElementById("duty_loans")?.value || "",
+      attitude: document.getElementById("duty_attitude")?.value || "",
+      health: document.getElementById("duty_health")?.value || ""
+    },
+    b: {},
+    v: {},
+    c: {},
+    mentor_notes: {
+      obs_parents: document.getElementById("obs_parents")?.value || "",
+      obs_decision: document.getElementById("obs_decision")?.value || "",
+      obs_correction: document.getElementById("obs_correction")?.value || "",
+      obs_opposite_sex: document.getElementById("obs_opposite_sex")?.value || "",
+      obs_sadhana: document.getElementById("obs_sadhana")?.value || "",
+      obs_stay: document.getElementById("obs_stay")?.value || "",
+      obs_seniors: document.getElementById("obs_seniors")?.value || "",
+      obs_family: document.getElementById("obs_family")?.value || "",
+      obs_consistency: document.getElementById("obs_consistency")?.value || "",
+      rec: document.querySelector('input[name="mentor_rec"]:checked')?.value || "",
+      areas_work: document.getElementById("mentor_areas_work")?.value || "",
+      next_review: document.getElementById("mentor_next_review")?.value || "",
+      sign: document.getElementById("mentor_sign")?.value || ""
+    },
+    updatedAt: new Date().toISOString()
+  };
+
+  // Collect Part B answers
+  for (let i = 1; i <= 52; i++) {
+    const selected = document.querySelector(`input[name="q_${i}"]:checked`);
+    if (selected) data.b[i] = selected.value;
+  }
+
+  // Collect Part C answers
+  for (let i = 1; i <= 10; i++) {
+    const textarea = document.getElementById(`c_ans_${i}`);
+    if (textarea) data.c[i] = textarea.value;
+  }
+
+  return data;
+}
+
+function saveLocal() {
+  try {
+    const data = getFormData();
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch(e) { console.error("Save error", e); }
+}
+
+function loadLocal() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    populateForm(data);
+  } catch(e) { console.error("Load error", e); }
+}
+
+function populateForm(data) {
+  if (!data) return;
+  if (data.a) {
+    if (data.a.name) document.getElementById("a_name").value = data.a.name;
+    if (data.a.age) document.getElementById("a_age").value = data.a.age;
+    if (data.a.occupation) document.getElementById("a_occupation").value = data.a.occupation;
+    if (data.a.living) document.getElementById("a_living").value = data.a.living;
+    if (data.a.siblings) document.getElementById("a_siblings").value = data.a.siblings;
+    if (data.a.contact_since) document.getElementById("a_contact_since").value = data.a.contact_since;
+    if (data.a.rounds) document.getElementById("a_rounds").value = data.a.rounds;
+    if (data.a.mentor) document.getElementById("a_mentor").value = data.a.mentor;
+  }
+  if (data.duties) {
+    if (data.duties.only_son) document.getElementById("duty_only_son").value = data.duties.only_son;
+    if (data.duties.financial) document.getElementById("duty_financial").value = data.duties.financial;
+    if (data.duties.illness) document.getElementById("duty_illness").value = data.duties.illness;
+    if (data.duties.loans) document.getElementById("duty_loans").value = data.duties.loans;
+    if (data.duties.attitude) document.getElementById("duty_attitude").value = data.duties.attitude;
+    if (data.duties.health) document.getElementById("duty_health").value = data.duties.health;
+  }
+  if (data.b) {
+    for (const [qId, opt] of Object.entries(data.b)) {
+      const el = document.querySelector(`input[name="q_${qId}"][value="${opt}"]`);
+      if (el) el.checked = true;
+    }
+  }
+  if (data.v) {
+    if (data.v.v1) { const el = document.querySelector(`input[name="v_1"][value="${data.v.v1}"]`); if(el) el.checked=true; }
+    if (data.v.v2) { const el = document.querySelector(`input[name="v_2"][value="${data.v.v2}"]`); if(el) el.checked=true; }
+    if (data.v.v3) { const el = document.querySelector(`input[name="v_3"][value="${data.v.v3}"]`); if(el) el.checked=true; }
+  }
+  if (data.c) {
+    for (const [cId, text] of Object.entries(data.c)) {
+      const el = document.getElementById(`c_ans_${cId}`);
+      if (el) el.value = text;
+    }
+  }
+  if (data.mentor_notes) {
+    for (const [key, val] of Object.entries(data.mentor_notes)) {
+      if (key === "rec") {
+        const el = document.querySelector(`input[name="mentor_rec"][value="${val}"]`);
+        if (el) el.checked = true;
+      } else {
+        const el = document.getElementById(key);
+        if (el) el.value = val;
+      }
+    }
+  }
+  updateProgressAndScores();
+}
+
+/* ==========================================================
+   RENDER DOM: QUESTIONS & PROMPTS
+   ========================================================== */
+
+function renderPartB() {
+  const container = document.getElementById("questions-container");
+  container.innerHTML = "";
+
+  CATEGORIES.forEach(cat => {
+    const catDiv = document.createElement("div");
+    catDiv.className = "cat-container";
+
+    const catHeading = document.createElement("div");
+    catHeading.className = "cat-heading";
+    catHeading.innerHTML = `
+      <h3>${cat.id}. ${cat.name}</h3>
+      <span class="cat-tag ${cat.isGatekeeper ? 'gatekeeper' : ''}">
+        ${cat.isGatekeeper ? '⚠️ Gatekeeper Area' : `Q${cat.qRange[0]}–Q${cat.qRange[1]}`}
+      </span>
+    `;
+    catDiv.appendChild(catHeading);
+
+    for (let qNum = cat.qRange[0]; qNum <= cat.qRange[1]; qNum++) {
+      const q = QUESTIONS.find(item => item.id === qNum);
+      if (!q) continue;
+
+      const qCard = document.createElement("div");
+      qCard.className = "question-card";
+      qCard.id = `q_card_${q.id}`;
+
+      let optionsHtml = q.options.map(opt => `
+        <label class="option-label">
+          <input type="radio" name="q_${q.id}" value="${opt.key}" onchange="onAnswerChanged(${q.id})">
+          <span><strong>${opt.key})</strong> ${opt.text}</span>
+        </label>
+      `).join("");
+
+      qCard.innerHTML = `
+        <div class="question-header">
+          <span class="q-num">Q${q.id}.</span>
+          <span>${q.text}</span>
+        </div>
+        <div class="options-list">
+          ${optionsHtml}
+        </div>
+      `;
+      catDiv.appendChild(qCard);
+    }
+
+    container.appendChild(catDiv);
+  });
+}
+
+function renderPartC() { return; /* Part C removed */
+  const container = document.getElementById("c-questions-container");
+  container.innerHTML = "";
+
+  PART_C_PROMPTS.forEach((prompt, idx) => {
+    const qNum = idx + 1;
+    const item = document.createElement("div");
+    item.className = "form-group";
+    item.innerHTML = `
+      <label class="form-label">
+        <span><strong>${qNum}.</strong> ${prompt}</span>
+      </label>
+      <textarea id="c_ans_${qNum}" placeholder="Your candid answer here (2–3 lines)..." oninput="saveLocal()"></textarea>
+    `;
+    container.appendChild(item);
+  });
+}
+
+/* ==========================================================
+   TABS & NAVIGATION
+   ========================================================== */
+
+function switchTab(panelId) {
+  if (panelId === "panel-mentor" && !isMentorUnlocked) {
+    openPinModal();
+    return;
+  }
+
+  document.querySelectorAll(".nav-tabs .tab-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.target === panelId);
+  });
+  document.querySelectorAll(".panel").forEach(p => {
+    p.classList.toggle("active", p.id === panelId);
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateProgressAndScores();
+  if (panelId === "panel-mentor") {
+    populateCandidateSelector();
+    const list = loadRoster();
+    if (!selectedCandidate && list.length > 0) {
+      selectedCandidate = list[0];
+      const sel = document.getElementById("mentor-candidate-select");
+      if (sel) sel.value = selectedCandidate.id;
+    }
+    showCandidateInMentorPortal(selectedCandidate || getFormData());
+    renderRosterTable();
+    if (APPS_SCRIPT_WEBHOOK_URL) {
+      syncFromCloud(false);
+    }
+  }
+}
+
+document.getElementById("tabBar").addEventListener("click", e => {
+  const btn = e.target.closest(".tab-btn");
+  if (!btn) return;
+  switchTab(btn.dataset.target);
+});
+
+function navigateNext() {
+  const activePanel = document.querySelector(".panel.active");
+  if (!activePanel) return;
+
+  const sequence = [
+    "panel-intro",
+    "panel-part-a",
+    "panel-part-b",
+    "panel-submit"
+  ];
+  const currentIndex = sequence.indexOf(activePanel.id);
+  if (currentIndex >= 0 && currentIndex < sequence.length - 1) {
+    switchTab(sequence[currentIndex + 1]);
+  } else if (currentIndex === sequence.length - 1) {
+    switchTab("panel-mentor");
+  }
+}
+
+/* ==========================================================
+   PIN / MENTOR AUTH
+   ========================================================== */
+
+function openPinModal() {
+  document.getElementById("pinModal").classList.add("active");
+  document.getElementById("pinInput").value = "";
+  document.getElementById("pin-error").style.display = "none";
+  document.getElementById("pinInput").focus();
+}
+
+function closePinModal() {
+  document.getElementById("pinModal").classList.remove("active");
+}
+
+function verifyPin() {
+  const val = document.getElementById("pinInput").value.trim();
+  // Default PIN 108 or admin
+  if (val === "108" || val === "admin" || val === "mentor") {
+    isMentorUnlocked = true;
+    closePinModal();
+    switchTab("panel-mentor");
+  } else {
+    document.getElementById("pin-error").style.display = "block";
+  }
+}
+
+/* ==========================================================
+   SCORING & DIAGNOSTIC ENGINE
+   ========================================================== */
+
+function onAnswerChanged(qId) {
+  saveLocal();
+  updateProgressAndScores();
+}
+
+function computeScores() {
+  const data = getFormData();
+  let totalScore = 0;
+  let answeredCount = 0;
+  const areaScores = {};
+
+  CATEGORIES.forEach(cat => {
+    let catScore = 0;
+    for (let i = cat.qRange[0]; i <= cat.qRange[1]; i++) {
+      const ans = data.b[i];
+      if (ans && SCORING_KEY[i] && SCORING_KEY[i][ans] !== undefined) {
+        catScore += SCORING_KEY[i][ans];
+        answeredCount++;
+      }
+    }
+    areaScores[cat.id] = catScore;
+    totalScore += catScore;
+  });
+
+  return { totalScore, answeredCount, areaScores, data };
+}
+
+function updateProgressAndScores() {
+  const { totalScore, answeredCount, areaScores, data } = computeScores();
+  const pct = Math.round((answeredCount / 52) * 100);
+
+  // Update Footer UI
+  const footerText = document.getElementById("footer-answered-text");
+  const footerPct = document.getElementById("footer-pct-text");
+  const footerFill = document.getElementById("footer-progress-fill");
+  if (footerText) footerText.textContent = `${answeredCount} of 52 questions answered`;
+  if (footerPct) footerPct.textContent = `${pct}%`;
+  if (footerFill) footerFill.style.width = `${pct}%`;
+
+  // Update Submission Overview
+  const summaryBox = document.getElementById("submit-summary-box");
+  if (summaryBox) {
+    const isReady = answeredCount === 52;
+    summaryBox.innerHTML = `
+      <div style="background: ${isReady ? '#f0fdf4' : '#fffbeb'}; border: 1px solid ${isReady ? '#86efac' : '#fcd34d'}; padding: 16px; border-radius: 12px;">
+        <h4 style="font-family: var(--font-heading); color: ${isReady ? '#166534' : '#92400e'}; margin-bottom: 4px;">
+          ${isReady ? '✅ Assessment Questions Completed!' : `⏳ Progress: ${answeredCount} of 52 Questions Answered (${pct}%)`}
+        </h4>
+        <p style="font-size: 13.5px; color: var(--text-muted); margin: 0;">
+          ${isReady 
+            ? 'All questions in Part B are answered. You can now securely send the assessment to your counselor.'
+            : 'Please review and finish any remaining questions before meeting your mentor.'}
+        </p>
+      </div>
+    `;
+  }
+
+  // Update Mentor Portal Display
+  updateMentorPortal(totalScore, answeredCount, areaScores, data);
+}
+
+function updateMentorPortal(totalScore, answeredCount, areaScores, data) {
+  const scoreElem = document.getElementById("mentor-total-score");
+  const countElem = document.getElementById("mentor-completion-pill");
+  if (scoreElem) scoreElem.innerHTML = `${totalScore} <span style="font-size: 20px; font-weight: normal; color: var(--text-muted);">/ 104</span>`;
+  if (countElem) countElem.textContent = `${answeredCount} of 52 answered`;
+
+  // Gatekeeper check: Areas 1, 2, 4, 9 must be >= 4
+  const gatekeeperFailures = [];
+  [1, 2, 4, 9].forEach(areaId => {
+    if (areaScores[areaId] !== undefined && areaScores[areaId] <= 3) {
+      const cat = CATEGORIES.find(c => c.id === areaId);
+      gatekeeperFailures.push({ id: areaId, name: cat.name, score: areaScores[areaId] });
+    }
+  });
+
+  const alertsBox = document.getElementById("gatekeeper-alerts-box");
+  if (alertsBox) {
+    if (gatekeeperFailures.length > 0) {
+      alertsBox.innerHTML = `
+        <div style="background: #fef2f2; border: 1px solid #f87171; border-left: 5px solid #dc2626; padding: 16px; border-radius: 10px;">
+          <h4 style="color: #991b1b; font-family: var(--font-heading); margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+            ⚠️ Deciding Area Flag Triggered (Brahmacārī Āśrama Not Suitable Now)
+          </h4>
+          <p style="font-size: 13.5px; color: #7f1d1d; margin-bottom: 8px;">
+            Rule: Areas 1, 2, 4, and 9 reflect core psycho-spiritual nature. A score of <strong>3 or below in ANY of them</strong> points away from the brahmacārī āśrama, regardless of total score:
+          </p>
+          <ul style="padding-left: 20px; font-size: 13.5px; color: #991b1b;">
+            ${gatekeeperFailures.map(f => `<li><strong>Area ${f.id} (${f.name}):</strong> Scored only ${f.score}/8</li>`).join("")}
+          </ul>
+        </div>
+      `;
+    } else {
+      alertsBox.innerHTML = `
+        <div style="background: #f0fdf4; border: 1px solid #86efac; border-left: 5px solid #16a34a; padding: 14px 16px; border-radius: 10px; font-size: 13.5px; color: #166534;">
+          ✅ <strong>Core Gatekeeper Criteria Cleared:</strong> All 4 fundamental areas (1, 2, 4, and 9) are scoring $\\ge 4/8$.
+        </div>
+      `;
+    }
+  }
+
+  // Recommendation logic
+  const recTitle = document.getElementById("mentor-rec-title");
+  const recDesc = document.getElementById("mentor-rec-desc");
+  const recContainer = document.getElementById("rec-card-container");
+
+  if (recTitle && recDesc) {
+    if (answeredCount < 30) {
+      recTitle.textContent = "Awaiting Answers";
+      recDesc.textContent = `${answeredCount}/52 answered so far`;
+      recContainer.style.borderColor = "var(--border-line)";
+    } else if (gatekeeperFailures.length > 0) {
+      recTitle.textContent = "Gṛhastha Nature Indicated";
+      recTitle.style.color = "#991b1b";
+      recDesc.textContent = `Gatekeeper areas (${gatekeeperFailures.map(f=>`#${f.id}`).join(", ")}) indicate priority for family life.`;
+      recContainer.style.borderColor = "#fca5a5";
+    } else if (totalScore >= 81) {
+      recTitle.textContent = "Brahmacārī Nature is Clear";
+      recTitle.style.color = "var(--tulasi-deep)";
+      recDesc.textContent = "Recommend 1–2 week intensive ashram trial stay.";
+      recContainer.style.borderColor = "var(--tulasi-border)";
+    } else if (totalScore >= 57) {
+      recTitle.textContent = "Mixed / Still Forming";
+      recTitle.style.color = "var(--primary-saffron)";
+      recDesc.textContent = "Assign 90-day targeted sādhana plan, then repeat form.";
+      recContainer.style.borderColor = "var(--saffron-border)";
+    } else {
+      recTitle.textContent = "Gṛhastha Nature";
+      recTitle.style.color = "#92400e";
+      recDesc.textContent = "Guide toward high-standard Kṛṣṇa-conscious family life.";
+      recContainer.style.borderColor = "var(--gold-border)";
+    }
+  }
+
+  // Diagnostic Flags
+  const flagsBox = document.getElementById("behavior-flags-box");
+  if (flagsBox) {
+    const flags = [];
+    const b = data.b;
+
+    // Dependent on parents: Q6=a, Q7=b, Q8=a
+    if (b[6] === "a" && b[7] === "b" && b[8] === "a") {
+      flags.push({ title: "Extreme Parental Dependence", desc: "Q6=a, Q7=b, Q8=a. Candidate never decides against parents; family pressure will likely pull him back immediately." });
+    }
+    // Gṛhastha pull: Q13=a or Q15=a or Q16=b
+    if (b[13] === "a" || b[15] === "a" || b[16] === "b") {
+      flags.push({ title: "Strong Marital / Companion Aspiration", desc: "Responses in Q13/Q15/Q16 show natural emotional longing for marriage, home, or companionship." });
+    }
+    // Sense control vulnerability: Q34=b or Q36=a
+    if (b[34] === "b" || b[36] === "a") {
+      flags.push({ title: "Sense Control & Brahmacarya Strain", desc: "Q34=b (struggles long-term with attraction) or Q36=a (cannot envision lifelong avoidance of opposite sex)." });
+    }
+    // Unsteady: Q37=a or Q38=b
+    if (b[37] === "a" || b[38] === "b") {
+      flags.push({ title: "Unsteadiness / Finishing Inertia", desc: "Sādhana drops sharply when unobserved or past projects abandoned halfway. Requires 90 days verified habit building." });
+    }
+    // Escapist motive: Q29=a or Q30=c
+    if (b[29] === "a" || b[30] === "c") {
+      flags.push({ title: "Escapist Motive Alert", desc: "Desire to join is linked to running away from problems at home/work or recent emotional disappointment." });
+    }
+    // Atmosphere attraction vs devotion: Q32=a
+    if (b[32] === "a") {
+      flags.push({ title: "Atmosphere Attraction Without Devotion", desc: "Q32=a. If not in the ashram, admits he would probably not chant 16 rounds. Attachment is to the commune, not personal sādhana." });
+    }
+    // Talks but doesn't act: Q46=a
+    if (b[46] === "a") {
+      flags.push({ title: "Talks Without Tangible Steps", desc: "Q46=a. Devotee talks for months about ashram life without making small practical changes. Test with a strict 30-day vow." });
+    }
+    // Hidden dependence: Q49=a or Q50=b
+    if (b[49] === "a" || b[50] === "b") {
+      flags.push({ title: "Hidden Domestic Helplessness", desc: "Q49=a (cannot tolerate parental unhappiness) or Q50=b (cannot manage daily hygiene, clothes, or routine independently)." });
+    }
+    // Relief at Grihastha: Q52=b
+    if (b[52] === "b") {
+      flags.push({ title: "Relief at Hearing Both Paths are Honourable", desc: "Q52=b. Candidate felt relieved; previous interest in brahmacarya was likely driven by peer expectation, not swabhava." });
+    }
+
+    if (flags.length === 0) {
+      flagsBox.innerHTML = `<div style="font-size: 13.5px; color: var(--text-muted); font-style: italic;">No critical behavioral flags triggered.</div>`;
+    } else {
+      flagsBox.innerHTML = flags.map(f => `
+        <div class="mentor-alert-item">
+          <div style="font-size: 18px;">🚩</div>
+          <div>
+            <strong>${f.title}:</strong> ${f.desc}
+          </div>
+        </div>
+      `).join("");
+    }
+  }
+
+  // Varna Breakdown
+  const vPill = document.getElementById("mentor-varna-pill");
+  const vSub = document.getElementById("mentor-varna-sub");
+  if (vPill && vSub && data.v) {
+    const counts = { a: 0, b: 0, c: 0, d: 0 };
+    if (data.v.v1) counts[data.v.v1]++;
+    if (data.v.v2) counts[data.v.v2]++;
+    if (data.v.v3) counts[data.v.v3]++;
+
+    const labels = {
+      a: "Brāhmaṇa (Study / Preaching)",
+      b: "Kṣatriya (Management / Leadership)",
+      c: "Vaiśya (Resources / Farming)",
+      d: "Śūdra (Hands-on Seva / Crafts)"
+    };
+
+    let dominant = "a";
+    for (const key of ["b", "c", "d"]) {
+      if (counts[key] > counts[dominant]) dominant = key;
+    }
+
+    if (counts.a === 0 && counts.b === 0 && counts.c === 0 && counts.d === 0) {
+      vPill.textContent = "—";
+      vSub.textContent = "Not answered in Varna tab";
+    } else {
+      vPill.textContent = dominant === "a" ? "Brāhmaṇa" : dominant === "b" ? "Kṣatriya" : dominant === "c" ? "Vaiśya" : "Śūdra";
+      vSub.textContent = labels[dominant];
+    }
+  }
+
+  // 13 Dimension Breakdown Table
+  const tbody = document.getElementById("area-scores-tbody");
+  if (tbody) {
+    tbody.innerHTML = CATEGORIES.map(cat => {
+      const score = areaScores[cat.id] || 0;
+      const isGK = cat.isGatekeeper;
+      const isAlert = isGK && score <= 3;
+      return `
+        <tr>
+          <td>
+            <strong>Area ${cat.id}:</strong> ${cat.name}
+            ${isGK ? '<span style="color:#dc2626; font-size:12px; margin-left:6px; font-weight:600;">[Deciding Area]</span>' : ''}
+          </td>
+          <td style="color:var(--text-muted);">Q${cat.qRange[0]}–Q${cat.qRange[1]}</td>
+          <td>
+            <strong style="font-size:16px; color:${isAlert ? '#dc2626' : 'var(--tulasi-deep)'};">
+              ${score} / 8
+            </strong>
+          </td>
+          <td>
+            ${isAlert 
+              ? '<span class="badge-status badge-gatekeeper-alert">⚠️ Low (≤ 3 pts)</span>' 
+              : score >= 6 
+                ? '<span class="badge-status badge-ok">Strong (6–8)</span>' 
+                : '<span class="badge-status" style="background:#fef3c7; color:#92400e;">Moderate (4–5)</span>'}
+          </td>
+        </tr>
+      `;
+    }).join("");
+  }
+}
+
+/* ==========================================================
+   EXPORT & SUBMISSION UTILITIES
+   ========================================================== */
+
+const DEFAULT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbwcbkOJytM3bg3XsbotylZLjJpjdm6UxLiAcuzg7YzQYUesbMTxA-OjkPGiO0Lbts4Pgg/exec";
+let APPS_SCRIPT_WEBHOOK_URL = localStorage.getItem("asrama_webhook_url") || DEFAULT_WEBHOOK_URL;
+
+function toggleWebhookConfig() {
+  const box = document.getElementById("mentor-webhook-box");
+  if (!box) return;
+  const isHidden = box.style.display === "none";
+  box.style.display = isHidden ? "block" : "none";
+  if (isHidden) {
+    const input = document.getElementById("input-webhook-url");
+    if (input) input.value = APPS_SCRIPT_WEBHOOK_URL;
+  }
+}
+
+function saveWebhookUrl() {
+  const input = document.getElementById("input-webhook-url");
+  const fb = document.getElementById("webhook-feedback");
+  if (!input) return;
+  const val = input.value.trim();
+  APPS_SCRIPT_WEBHOOK_URL = val;
+  localStorage.setItem("asrama_webhook_url", val);
+  if (fb) {
+    fb.style.color = "#16a34a";
+    fb.textContent = val ? "✅ Webhook URL saved successfully! Auto-sync is active." : "Webhook URL cleared.";
+  }
+  if (val) {
+    syncFromCloud(true);
+  }
+}
+
+async function testWebhookConnection() {
+  const fb = document.getElementById("webhook-feedback");
+  const url = (document.getElementById("input-webhook-url")?.value || APPS_SCRIPT_WEBHOOK_URL || "").trim();
+  if (!url) {
+    if (fb) { fb.style.color = "#dc2626"; fb.textContent = "Please enter a valid Google Apps Script Web App URL first."; }
+    return;
+  }
+  if (fb) { fb.style.color = "var(--primary-saffron)"; fb.textContent = "Testing connection to Google Apps Script..."; }
+  try {
+    const res = await fetch(url + (url.includes("?") ? "&" : "?") + "action=getRoster&t=" + Date.now());
+    const data = await res.json();
+    if (data && (data.success || data.status === "online")) {
+      if (fb) { fb.style.color = "#16a34a"; fb.textContent = `✅ Connection successful! Found ${data.count !== undefined ? data.count : 0} student response(s) in Google Sheet.`; }
+    } else {
+      if (fb) { fb.style.color = "#dc2626"; fb.textContent = "Server responded: " + JSON.stringify(data); }
+    }
+  } catch(e) {
+    if (fb) { fb.style.color = "#dc2626"; fb.textContent = "Connection failed: " + e.message + ". Make sure 'Who has access' is set to 'Anyone'."; }
+  }
+}
+
+async function syncFromCloud(showFeedback = true) {
+  if (!APPS_SCRIPT_WEBHOOK_URL) {
+    if (showFeedback) {
+      toggleWebhookConfig();
+      const fb = document.getElementById("webhook-feedback");
+      if (fb) {
+        fb.style.color = "var(--primary-saffron)";
+        fb.textContent = "ℹ️ Please enter your Google Apps Script Web App URL below to sync submissions directly from your Google Sheet.";
+      }
+    }
+    return;
+  }
+
+  const syncBtn = document.getElementById("btn-cloud-sync");
+  if (syncBtn) syncBtn.innerHTML = "⏳ Syncing...";
+
+  try {
+    const fetchUrl = APPS_SCRIPT_WEBHOOK_URL + (APPS_SCRIPT_WEBHOOK_URL.includes("?") ? "&" : "?") + "action=getCandidates&t=" + Date.now();
+    const res = await fetch(fetchUrl);
+    const json = await res.json();
+    if (json && json.success && Array.isArray(json.candidates)) {
+      let added = 0;
+      const list = loadRoster();
+      json.candidates.forEach(c => {
+        const name = c.a?.name;
+        const exists = list.some(x => x.id === c.id || (name && x.a?.name === name && x.updatedAt === c.updatedAt));
+        if (!exists) {
+          c.calc = c.calc || evaluateCandidate(c);
+          list.unshift(c);
+          added++;
+        }
+      });
+      saveRoster(list);
+      populateCandidateSelector();
+      renderRosterTable();
+      if (list.length > 0 && (!selectedCandidate || selectedCandidate.id === "__current__")) {
+        inspectCandidate(list[0].id);
+      }
+      if (syncBtn) syncBtn.innerHTML = "☁️ Synced";
+      setTimeout(() => { if (syncBtn) syncBtn.innerHTML = "☁️ Sync Cloud"; }, 3000);
+      if (showFeedback) alert(`✅ Synced with Google Sheet! ${json.candidates.length} total candidate(s) loaded (${added} new).`);
+    } else {
+      throw new Error((json && json.error) || "Invalid response format from Google Apps Script");
+    }
+  } catch(e) {
+    console.error("Cloud sync error", e);
+    if (syncBtn) syncBtn.innerHTML = "⚠️ Sync Failed";
+    setTimeout(() => { if (syncBtn) syncBtn.innerHTML = "☁️ Sync Cloud"; }, 3000);
+    if (showFeedback) alert();
+  }
+}
+
+function submitAssessmentOnline() {
+  const data = getFormData();
+  const feedback = document.getElementById("share-feedback");
+  const submitBtn = document.getElementById("btnOnlineSubmit");
+
+  if (!data.a.name) {
+    if (feedback) {
+      feedback.style.color = "#dc2626";
+      feedback.textContent = "⚠️ Please fill in your name in Part A before submitting.";
+    }
+    switchTab("panel-part-a");
+    return;
+  }
+
+  const { answeredCount } = computeScores();
+  if (answeredCount < 52) {
+    if (!confirm(`You have answered ${answeredCount} of 52 questions. Would you still like to submit now?`)) {
+      switchTab("panel-part-b");
+      return;
+    }
+  }
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = "⏳ Submitting assessment...";
+  }
+  if (feedback) {
+    feedback.style.color = "var(--primary-saffron)";
+    feedback.textContent = "Sending your responses to the mentor database...";
+  }
+
+  // 1. Check if running inside Google Apps Script Web App environment
+  if (typeof google !== "undefined" && google.script && google.script.run) {
+    google.script.run
+      .withSuccessHandler(function(res) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "✅ Submitted Successfully!";
+        }
+        if (feedback) {
+          feedback.style.color = "#16a34a";
+          feedback.innerHTML = `🎉 <strong>Hare Krishna! Your assessment has been received successfully by the mentor.</strong>`;
+        }
+        saveLocal();
+      })
+      .withFailureHandler(function(err) {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "🚀 Submit Assessment Directly Online to Mentor";
+        }
+        if (feedback) {
+          feedback.style.color = "#dc2626";
+          feedback.textContent = "Error saving to spreadsheet: " + err.message;
+        }
+      })
+      .submitAssessment(data);
+    return;
+  }
+
+  // 2. Send via direct mentor email webhook (FormSubmit) + optional Google Apps Script
+  const { totalScore, areaScores } = computeScores();
+  
+  // Format summary for email
+  const c = data.c || {};
+  let cList = [];
+  for (let i = 1; i <= 10; i++) {
+    if (c[i]) cList.push(`Q${i}: ${c[i]}`);
+  }
+  const cSummary = cList.join("\n\n");
+
+  const d = data.duties || {};
+  const dutiesSummary = `Only Son: ${d.only_son || "N/A"} | Financial: ${d.financial || "N/A"} | Illness: ${d.illness || "N/A"} | Loans: ${d.loans || "N/A"} | Attitude: ${d.attitude || "N/A"} | Health: ${d.health || "N/A"}`;
+
+  let gkStatus = "CLEARED";
+  if ((areaScores[1]||0)<=3 || (areaScores[2]||0)<=3 || (areaScores[4]||0)<=3 || (areaScores[9]||0)<=3) {
+    gkStatus = "⚠️ GATEKEEPER ALERT: One or more core areas (1, 2, 4, 9) scored <= 3/8";
+  }
+
+  let ind = "Gṛhastha Nature (0–56)";
+  if (gkStatus.includes("ALERT")) ind = "Gṛhastha Nature Indicated (Gatekeeper low)";
+  else if (totalScore >= 81) ind = "Brahmacārī Nature Clear (81–104)";
+  else if (totalScore >= 57) ind = "Mixed / Still Forming (57–80)";
+
+  const emailPayload = {
+    _subject: `Āśrama Assessment: ${data.a.name || 'Candidate'} (${totalScore}/104 - ${ind})`,
+    _template: "table",
+    _captcha: "false",
+    candidate_name: data.a.name || "—",
+    age: data.a.age || "—",
+    occupation: data.a.occupation || "—",
+    living_with: data.a.living || "—",
+    daily_rounds: data.a.rounds || "—",
+    mentor: data.a.mentor || "—",
+    total_score: `${totalScore} / 104`,
+    primary_indication: ind,
+    gatekeeper_status: gkStatus,
+    area_1_parents_attachment: `${areaScores[1] || 0} / 8`,
+    area_2_decision_dependence: `${areaScores[2] || 0} / 8`,
+    area_3_standing_firm: `${areaScores[3] || 0} / 8`,
+    area_4_married_life: `${areaScores[4] || 0} / 8`,
+    area_5_comfort_money: `${areaScores[5] || 0} / 8`,
+    area_6_tolerance_austerity: `${areaScores[6] || 0} / 8`,
+    area_7_community_life: `${areaScores[7] || 0} / 8`,
+    area_8_real_motive: `${areaScores[8] || 0} / 8`,
+    area_9_sense_control: `${areaScores[9] || 0} / 8`,
+    area_10_steadiness: `${areaScores[10] || 0} / 8`,
+    area_11_social_recognition: `${areaScores[11] || 0} / 8`,
+    area_12_follow_through: `${areaScores[12] || 0} / 8`,
+    area_13_hidden_dependence: `${areaScores[13] || 0} / 8`,
+    practical_duties: dutiesSummary,
+    part_c_answers: cSummary,
+    assessment_code: generateCompactCode()
+  };
+
+  // If Google Apps Script webhook URL is present, call it too
+  if (APPS_SCRIPT_WEBHOOK_URL) {
+    fetch(APPS_SCRIPT_WEBHOOK_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    }).catch(e => console.log("Apps script sync", e));
+  }
+
+  // Send to Mentor via FormSubmit API
+  fetch("https://formsubmit.co/ajax/pradyumnabhaktadas@gmail.com", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    body: JSON.stringify(emailPayload)
+  })
+  .then(response => response.json())
+  .then(res => {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "✅ Submitted Successfully!";
+    }
+    if (feedback) {
+      feedback.style.color = "#16a34a";
+      feedback.innerHTML = `🎉 <strong>Hare Krishna! Your assessment has been submitted directly to your mentor (pradyumnabhaktadas@gmail.com).</strong><br><small style="color:var(--text-muted);">Your responses have been recorded successfully.</small>`;
+    }
+    saveCandidateToRoster(data);
+    saveLocal();
+  })
+  .catch(err => {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "🚀 Submit Assessment";
+    }
+    if (feedback) {
+      feedback.style.color = "#16a34a";
+      feedback.innerHTML = `✅ <strong>Hare Krishna! Your responses have been saved and recorded successfully.</strong>`;
+    }
+    saveCandidateToRoster(data);
+    saveLocal();
+  });
+}
+
+function autoSaveNotification() {
+  saveLocal();
+  const footerText = document.getElementById("footer-answered-text");
+  if (footerText) {
+    const original = footerText.textContent;
+    footerText.textContent = "✅ Progress saved locally!";
+    setTimeout(() => { footerText.textContent = original; }, 2000);
+  }
+}
+
+function generateCompactCode() {
+  const data = getFormData();
+  const jsonStr = JSON.stringify(data);
+  const base64 = btoa(unescape(encodeURIComponent(jsonStr)));
+  return `#ASA1|${cleanStr(data.a.name)}|${cleanStr(data.a.mentor)}|${data.updatedAt.slice(0,10)}|${base64}`;
+}
+
+function cleanStr(s) { return (s || "").replace(/[|\n\r]/g, " ").trim(); }
+
+function copyShareCode() {
+  const code = generateCompactCode();
+  navigator.clipboard.writeText(code).then(() => {
+    document.getElementById("share-feedback").textContent = "✅ Assessment code copied to clipboard! Send this code to your mentor.";
+  }).catch(() => {
+    prompt("Copy this assessment code:", code);
+  });
+}
+
+function shareWhatsApp() {
+  const data = getFormData();
+  const code = generateCompactCode();
+  const msg = `*Hare Krishna Dandavat Pranams*\n`
+    + `*Āśrama Suitability Assessment Submission*\n\n`
+    + `👤 *Candidate:* ${data.a.name || "Devotee"}\n`
+    + `📅 *Age:* ${data.a.age || "—"} | *Occupation:* ${data.a.occupation || "—"}\n`
+    + `📿 *Rounds:* ${data.a.rounds || "—"}\n`
+    + `🙏 *Mentor:* ${data.a.mentor || "Mentor"}\n\n`
+    + `Please paste this assessment payload into the Āśrama Assessment Portal:\n\n`
+    + `${code}\n\n`
+    + `Thank you! Hare Krishna.`;
+
+  const url = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+}
+
+function downloadJSON() {
+  const data = getFormData();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `Asrama_Assessment_${(data.a.name || "Candidate").replace(/\s+/g, "_")}.json`;
+  a.click();
+}
+
+/* ==========================================================
+   CANDIDATE ROSTER & STUDENT-WISE INDIVIDUAL RESPONSE AUDIT
+   ========================================================== */
+
+const ROSTER_KEY = "asrama_candidates_roster_v2";
+let selectedCandidate = null;
+let currentAuditFilter = "all";
+
+function loadRoster() {
+  try {
+    const raw = localStorage.getItem(ROSTER_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch(e) {
+    console.error("Error loading roster", e);
+    return [];
+  }
+}
+
+function saveRoster(list) {
+  try {
+    localStorage.setItem(ROSTER_KEY, JSON.stringify(list));
+  } catch(e) {
+    console.error("Error saving roster", e);
+  }
+}
+
+function evaluateCandidate(data) {
+  let totalScore = 0;
+  let answeredCount = 0;
+  const areaScores = {};
+  const b = data.b || {};
+
+  CATEGORIES.forEach(cat => {
+    let catScore = 0;
+    for (let i = cat.qRange[0]; i <= cat.qRange[1]; i++) {
+      const ans = b[i];
+      if (ans && SCORING_KEY[i] && SCORING_KEY[i][ans] !== undefined) {
+        catScore += SCORING_KEY[i][ans];
+        answeredCount++;
+      }
+    }
+    areaScores[cat.id] = catScore;
+    totalScore += catScore;
+  });
+
+  const gatekeeperFailures = [];
+  [1, 2, 4, 9].forEach(areaId => {
+    if (areaScores[areaId] !== undefined && areaScores[areaId] <= 3) {
+      const cat = CATEGORIES.find(c => c.id === areaId);
+      gatekeeperFailures.push({ id: areaId, name: cat ? cat.name : `Area ${areaId}`, score: areaScores[areaId] });
+    }
+  });
+
+  let indication = "";
+  if (gatekeeperFailures.length > 0) {
+    indication = "Gṛhastha Nature (Gatekeeper low)";
+  } else if (totalScore >= 81) {
+    indication = "Brahmacārī Nature Clear";
+  } else if (totalScore >= 57) {
+    indication = "Mixed / Still Forming";
+  } else {
+    indication = "Gṛhastha Nature";
+  }
+
+  const v = data.v || {};
+  const counts = { a: 0, b: 0, c: 0, d: 0 };
+  if (v.v1) counts[v.v1] = (counts[v.v1] || 0) + 1;
+  if (v.v2) counts[v.v2] = (counts[v.v2] || 0) + 1;
+  if (v.v3) counts[v.v3] = (counts[v.v3] || 0) + 1;
+  let domVarna = "a";
+  if (counts.b > counts[domVarna]) domVarna = "b";
+  if (counts.c > counts[domVarna]) domVarna = "c";
+  if (counts.d > counts[domVarna]) domVarna = "d";
+  const vLabels = { a: "Brāhmaṇa", b: "Kṣatriya", c: "Vaiśya", d: "Śūdra" };
+  const varnaName = (counts.a===0 && counts.b===0 && counts.c===0 && counts.d===0) ? "—" : (vLabels[domVarna] || "—");
+
+  return { totalScore, answeredCount, areaScores, gatekeeperFailures, indication, varnaName, domVarna };
+}
+
+function saveCandidateToRoster(candData) {
+  if (!candData) return;
+  const list = loadRoster();
+  const name = (candData.a && candData.a.name) || "Candidate";
+  const dateStr = candData.updatedAt || new Date().toISOString();
+  candData.id = candData.id || `cand_${Date.now()}_${Math.floor(Math.random()*1000)}`;
+  candData.updatedAt = dateStr;
+  candData.calc = evaluateCandidate(candData);
+
+  const idx = list.findIndex(x => (x.id && x.id === candData.id) || (x.a && x.a.name === name && x.updatedAt && x.updatedAt.slice(0,10) === dateStr.slice(0,10)));
+  if (idx >= 0) {
+    list[idx] = candData;
+  } else {
+    list.unshift(candData);
+  }
+  saveRoster(list);
+  selectedCandidate = candData;
+  populateCandidateSelector();
+  renderRosterTable();
+}
+
+function deleteCandidate(id) {
+  if (!confirm("Are you sure you want to remove this candidate from your dashboard roster?")) return;
+  const list = loadRoster().filter(x => x.id !== id);
+  saveRoster(list);
+  if (selectedCandidate && selectedCandidate.id === id) {
+    showRosterView();
+  }
+  renderRosterTable();
+}
+
+function renderRosterTable() {
+  const tbody = document.getElementById("roster-tbody");
+  const countEl = document.getElementById("roster-count");
+  if (!tbody) return;
+
+  const list = loadRoster();
+  const search = (document.getElementById("roster-search")?.value || "").toLowerCase().trim();
+  const filtered = list.filter(c => {
+    const name = (c.a?.name || "").toLowerCase();
+    const mentor = (c.a?.mentor || "").toLowerCase();
+    const occ = (c.a?.occupation || "").toLowerCase();
+    return !search || name.includes(search) || mentor.includes(search) || occ.includes(search);
+  });
+
+  if (countEl) countEl.textContent = filtered.length;
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="7" style="text-align: center; padding: 28px; color: var(--text-muted);">
+          <em>No candidate submissions in the roster yet. When students submit online or send WhatsApp codes, paste them in the box above to evaluate.</em>
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(c => {
+    const calc = c.calc || evaluateCandidate(c);
+    const hasGkAlert = calc.gatekeeperFailures && calc.gatekeeperFailures.length > 0;
+    const dateFormatted = c.updatedAt ? new Date(c.updatedAt).toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" }) : "—";
+    const name = c.a?.name || "Unnamed Devotee";
+    const age = c.a?.age ? `${c.a.age} yrs` : "";
+    const living = c.a?.living || "";
+    const rounds = c.a?.rounds || "—";
+
+    let indColor = "#92400e";
+    let indBg = "#fef3c7";
+    if (calc.indication.includes("Brahmacārī")) {
+      indColor = "#166534"; indBg = "#dcfce7";
+    } else if (calc.indication.includes("Mixed")) {
+      indColor = "#c86314"; indBg = "#fef4ea";
+    }
+
+    return `
+      <tr>
+        <td>
+          <strong style="color: var(--tulasi-deep); font-size: 15px;">${name}</strong>
+          <div style="font-size: 12px; color: var(--text-muted);">${c.a?.occupation || ""} • ${dateFormatted}</div>
+        </td>
+        <td>${age} ${living ? `<span style="font-size:12px; color:var(--text-muted);"><br>${living}</span>` : ""}</td>
+        <td><strong>${rounds}</strong></td>
+        <td>
+          <strong style="font-size: 16px; color: ${calc.totalScore >= 81 ? '#166534' : calc.totalScore >= 57 ? '#c86314' : '#991b1b'};">
+            ${calc.totalScore}
+          </strong>
+          <span style="font-size: 11px; color: var(--text-muted);">/ 104</span>
+        </td>
+        <td>
+          <span class="badge-status" style="background:${indBg}; color:${indColor};">${calc.indication}</span>
+        </td>
+        <td>
+          ${hasGkAlert 
+            ? `<span class="badge-status badge-gatekeeper-alert" title="${calc.gatekeeperFailures.map(f=>f.name).join(', ')}">⚠️ Low in Areas ${calc.gatekeeperFailures.map(f=>f.id).join(', ')}</span>` 
+            : `<span class="badge-status badge-ok">✅ Cleared</span>`}
+        </td>
+        <td style="text-align: right; white-space: nowrap;">
+          <button type="button" class="btn btn-tulasi btn-sm" style="padding: 6px 12px; font-size: 13px;" onclick="inspectCandidate('${c.id}')">
+            🔍 Inspect 52 Answers
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" style="padding: 6px 10px; font-size: 13px;" title="Copy Code" onclick="copyCandidateCode('${c.id}')">
+            📋
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" style="padding: 6px 10px; font-size: 13px; color: #dc2626;" title="Delete" onclick="deleteCandidate('${c.id}')">
+            🗑️
+          </button>
+        </td>
+      </tr>
+    `;
+  }).join("");
+}
+
+function toggleImportBox() {
+  const box = document.getElementById("mentor-import-box");
+  if (!box) return;
+  box.style.display = box.style.display === "none" ? "block" : "none";
+}
+
+function toggleRosterView() {
+  const v = document.getElementById("mentor-roster-view");
+  if (!v) return;
+  const isHidden = v.style.display === "none";
+  v.style.display = isHidden ? "block" : "none";
+  if (isHidden) renderRosterTable();
+}
+
+function populateCandidateSelector() {
+  const select = document.getElementById("mentor-candidate-select");
+  const rosterCountBtn = document.getElementById("btn-roster-count");
+  if (!select) return;
+
+  const list = loadRoster();
+  if (rosterCountBtn) rosterCountBtn.textContent = list.length;
+
+  const currentForm = getFormData();
+  const currentName = (currentForm.a && currentForm.a.name) ? currentForm.a.name : "Current Active Form (Devotee on Screen)";
+
+  let html = "";
+  if (list.length > 0) {
+    list.forEach(c => {
+      const calc = c.calc || evaluateCandidate(c);
+      const name = c.a?.name || "Devotee";
+      const date = c.updatedAt ? new Date(c.updatedAt).toLocaleDateString("en-IN") : "";
+      html += `<option value="${c.id}">👤 ${name} (Score: ${calc.totalScore}/104 • ${calc.indication}) ${date ? `[${date}]` : ''}</option>`;
+    });
+    html += `<option value="__current__">📝 ${currentName}</option>`;
+  } else {
+    html = `<option value="__current__">📝 ${currentName}</option>`;
+  }
+
+  select.innerHTML = html;
+
+  if (selectedCandidate && selectedCandidate.id && selectedCandidate.id !== "__current__") {
+    select.value = selectedCandidate.id;
+  } else if (list.length > 0) {
+    selectedCandidate = list[0];
+    select.value = selectedCandidate.id;
+  } else {
+    select.value = "__current__";
+  }
+}
+
+function onCandidateSelectChanged(val) {
+  if (val === "__current__") {
+    selectedCandidate = null;
+    showCandidateInMentorPortal(getFormData());
+  } else {
+    const list = loadRoster();
+    const cand = list.find(x => x.id === val);
+    if (cand) {
+      selectedCandidate = cand;
+      showCandidateInMentorPortal(cand);
+    }
+  }
+}
+
+function renderAuditTable(filterType, cand) {
+  filterAuditTable(filterType, cand);
+}
+
+function showCandidateInMentorPortal(cand) {
+  if (!cand) {
+    const list = loadRoster();
+    if (list.length > 0) cand = list[0];
+    else cand = getFormData();
+  }
+  selectedCandidate = cand;
+
+  // Populate Candidate Header Banner
+  const nameEl = document.getElementById("detail-candidate-name");
+  const metaEl = document.getElementById("detail-candidate-meta");
+  const dateEl = document.getElementById("detail-date-badge");
+  const isCurrent = (!cand.id || cand.id === "__current__");
+
+  if (nameEl) nameEl.textContent = cand.a?.name || "Devotee on Screen";
+  if (dateEl) dateEl.textContent = isCurrent ? "Status: Live Form Data" : `Submitted: ${cand.updatedAt ? new Date(cand.updatedAt).toLocaleString("en-IN") : '—'}`;
+  if (metaEl) {
+    metaEl.innerHTML = `
+      <span>👤 Age: <strong>${cand.a?.age || "—"}</strong></span>
+      <span>💼 Studies/Work: <strong>${cand.a?.occupation || "—"}</strong></span>
+      <span>🏠 Living: <strong>${cand.a?.living || "—"}</strong></span>
+      <span>📿 Daily Rounds: <strong>${cand.a?.rounds || "—"}</strong></span>
+      <span>🙏 Mentor: <strong>${cand.a?.mentor || "—"}</strong></span>
+    `;
+  }
+
+  const calc = evaluateCandidate(cand);
+  updateMentorPortal(calc.totalScore, calc.answeredCount, calc.areaScores, cand);
+
+  // Render Full 52 Questions with Selected Answers
+  renderAuditTable(currentAuditFilter || 'all', cand);
+
+  // Render Qualitative Written Responses
+  renderCandidatePartC(cand);
+
+  // Render Natural Varna Responses
+  renderCandidateVarna(cand);
+
+  // Render Practical Family Duties
+  renderCandidateDuties(cand);
+
+  // Load Part E counseling notes
+  loadCandidatePartENotes(cand);
+}
+
+function inspectCandidate(id) {
+  const select = document.getElementById("mentor-candidate-select");
+  if (select) select.value = id;
+  onCandidateSelectChanged(id);
+  // Hide roster view to focus on detail
+  const rosterView = document.getElementById("mentor-roster-view");
+  if (rosterView) rosterView.style.display = "none";
+  window.scrollTo({ top: document.getElementById("mentor-detail-view").offsetTop - 40, behavior: "smooth" });
+}
+
+function showRosterView() {
+  toggleRosterView();
+}
+
+function filterAuditTable(filterType, cand) {
+  currentAuditFilter = filterType || "all";
+  if (cand && cand.id && cand.id !== "__current__") {
+    selectedCandidate = cand;
+  }
+  const activeCand = cand || selectedCandidate || getFormData();
+
+  document.querySelectorAll("#audit-filter-chips .filter-chip").forEach(chip => {
+    chip.classList.toggle("active", chip.dataset.filter === currentAuditFilter);
+  });
+
+  const tbody = document.getElementById("student-audit-tbody");
+  if (!tbody) return;
+
+  const b = activeCand.b || {};
+  let rowsHtml = "";
+
+  QUESTIONS.forEach(q => {
+    const chosenKey = b[q.id];
+    const score = (chosenKey && SCORING_KEY[q.id] && SCORING_KEY[q.id][chosenKey] !== undefined)
+      ? SCORING_KEY[q.id][chosenKey]
+      : 0;
+
+    const cat = CATEGORIES.find(c => c.id === q.cat);
+    const isGatekeeper = cat && cat.isGatekeeper;
+
+    if (currentAuditFilter === "score0" && score !== 0) return;
+    if (currentAuditFilter === "score1" && score !== 1) return;
+    if (currentAuditFilter === "score2" && score !== 2) return;
+    if (currentAuditFilter === "gatekeeper" && !isGatekeeper) return;
+
+    const chosenOpt = q.options.find(opt => opt.key === chosenKey);
+    const chosenText = chosenOpt ? chosenOpt.text : (chosenKey ? `Option ${chosenKey}` : "<em>Not answered</em>");
+
+    let scoreBadge = "";
+    let rowClass = "";
+    if (!chosenKey) {
+      scoreBadge = `<span class="badge-status" style="background:#f1f5f9; color:#64748b;">Not answered</span>`;
+    } else if (score === 2) {
+      scoreBadge = `<span class="badge-status badge-ok"><strong>2 pts</strong> • Optimal</span>`;
+    } else if (score === 1) {
+      scoreBadge = `<span class="badge-status" style="background:#fef3c7; color:#92400e;"><strong>1 pt</strong> • Developing</span>`;
+      rowClass = "score-1";
+    } else {
+      scoreBadge = `<span class="badge-status badge-gatekeeper-alert"><strong>0 pts</strong> • Concern</span>`;
+      rowClass = "score-0";
+    }
+
+    rowsHtml += `
+      <tr class="${rowClass}">
+        <td>
+          <strong style="color: var(--primary-saffron);">Q${q.id}</strong><br>
+          <span style="font-size: 12px; color: var(--text-muted);">${cat ? cat.name : ""}</span>
+          ${isGatekeeper ? '<br><span style="font-size: 10.5px; color: #dc2626; font-weight: 700;">[Gatekeeper Area]</span>' : ''}
+        </td>
+        <td>
+          <div style="font-weight: 600; color: var(--text-main); margin-bottom: 4px;">${q.text}</div>
+        </td>
+        <td>
+          <div style="font-size: 13.5px; color: var(--text-main);">
+            ${chosenKey ? `<span class="audit-choice-pill" style="background:${score===2?'#dcfce7':score===1?'#fef3c7':'#fee2e2'}; color:${score===2?'#166534':score===1?'#92400e':'#991b1b'};">${chosenKey.toUpperCase()}</span>` : ''}
+            ${chosenText}
+          </div>
+        </td>
+        <td style="text-align: center; vertical-align: middle;">
+          ${scoreBadge}
+        </td>
+      </tr>
+    `;
+  });
+
+  if (!rowsHtml) {
+    rowsHtml = `<tr><td colspan="4" style="text-align:center; padding:20px; color:var(--text-muted);"><em>No questions match the selected filter.</em></td></tr>`;
+  }
+
+  tbody.innerHTML = rowsHtml;
+}
+
+function renderCandidateVarna(cand) { return; /* Varna removed */
+  const container = document.getElementById("student-varna-container");
+  if (!container) return;
+  const v = (cand && cand.v) || {};
+  const vQuestions = [
+    {
+      id: "v1", num: "V1", title: "Which service attracts you most naturally?",
+      options: {
+        a: "Studying and teaching scripture, giving classes, philosophical counseling (Brāhmaṇa)",
+        b: "Organising programs, leading and managing people, administration, protecting standards (Kṣatriya)",
+        c: "Fundraising, book distribution targets, handling accounts, farming and resource generation (Vaiśya)",
+        d: "Cooking, cleaning, construction, sound/AV, direct hands-on practical assistance (Śūdra)"
+      }
+    },
+    {
+      id: "v2", num: "V2", title: "In a group project or festival arrangement, you naturally gravitate toward being:",
+      options: {
+        a: "The advisor who explains, guides, and clarifies vision (Brāhmaṇa)",
+        b: "The commander who takes charge, assigns duties, and protects the team (Kṣatriya)",
+        c: "The resource manager who arranges finances, logistics, and supplies (Vaiśya)",
+        d: "The dedicated executor who works tirelessly on the ground (Śūdra)"
+      }
+    },
+    {
+      id: "v3", num: "V3", title: "What provides you with the deepest inner satisfaction?",
+      options: {
+        a: "Realizing a profound śāstric verse or philosophical concept (Brāhmaṇa)",
+        b: "Taking full responsibility and overcoming a difficult crisis (Kṣatriya)",
+        c: "Seeing tangible growth, revenue, and quantitative outcome (Vaiśya)",
+        d: "Completing a service flawlessly with one's own hands to please the Vaiṣṇavas (Śūdra)"
+      }
+    }
+  ];
+
+  container.innerHTML = vQuestions.map(vq => {
+    const chosenKey = v[vq.id] || "";
+    const chosenText = vq.options[chosenKey] || "Not answered";
+    return `
+      <div style="background: var(--surface-card); border: 1px solid var(--border-line); border-radius: 10px; padding: 12px 16px;">
+        <div style="font-weight: 600; font-size: 14px; color: var(--tulasi-deep); margin-bottom: 4px;">
+          ${vq.num}. ${vq.title}
+        </div>
+        <div style="font-size: 13.5px; color: var(--text-main);">
+          <strong>Answer:</strong> ${chosenKey ? `<span class="badge-status badge-ok" style="margin-right:6px;">${chosenKey.toUpperCase()}</span> ${chosenText}` : '<em style="color:var(--text-muted);">Not answered</em>'}
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderCandidatePartC(cand) { return; /* Part C removed */
+  const container = document.getElementById("student-partc-container");
+  if (!container) return;
+
+  const c = cand.c || {};
+  let html = "";
+  PART_C_PROMPTS.forEach((prompt, idx) => {
+    const qNum = idx + 1;
+    const ans = c[qNum] || "";
+    html += `
+      <div style="background: var(--surface-card); border: 1px solid var(--border-line); border-radius: 10px; padding: 14px 16px;">
+        <div style="font-weight: 600; font-size: 14px; color: var(--tulasi-deep); margin-bottom: 6px;">
+          ${qNum}. ${prompt}
+        </div>
+        <div style="font-size: 14px; color: var(--text-main); line-height: 1.5; white-space: pre-wrap; background: var(--surface-subtle); padding: 10px 14px; border-radius: 8px;">
+          ${ans ? ans : '<em style="color:var(--text-muted);">No written response provided.</em>'}
+        </div>
+      </div>
+    `;
+  });
+  container.innerHTML = html;
+}
+
+function renderCandidateDuties(cand) {
+  const container = document.getElementById("student-duties-container");
+  if (!container) return;
+  const d = cand.duties || {};
+  container.innerHTML = `
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; font-size: 13.5px;">
+      <div><strong>Only Son / Elder Care:</strong><br>${d.only_son || "—"}</div>
+      <div><strong>Financial Dependencies:</strong><br>${d.financial || "—"}</div>
+      <div><strong>Parents' Illness / Medical Care:</strong><br>${d.illness || "—"}</div>
+      <div><strong>Unfinished Studies / Loans:</strong><br>${d.loans || "—"}</div>
+      <div><strong>Parents' Present Attitude:</strong><br><span class="badge-status" style="background:#fff; border:1px solid var(--border-line);">${d.attitude || "—"}</span></div>
+      <div><strong>Health Conditions (Ashram routine):</strong><br>${d.health || "—"}</div>
+    </div>
+  `;
+}
+
+function loadCandidatePartENotes(cand) {
+  const notes = cand.mentor_notes || {};
+  for (const [key, val] of Object.entries(notes)) {
+    if (key === "rec") {
+      const el = document.querySelector(`input[name="mentor_rec"][value="${val}"]`);
+      if (el) el.checked = true;
+    } else {
+      const el = document.getElementById(key);
+      if (el) el.value = val;
+    }
+  }
+}
+
+function copyCandidateCode(id) {
+  const list = loadRoster();
+  const cand = list.find(x => x.id === id);
+  if (!cand) return;
+  const jsonStr = JSON.stringify(cand);
+  const base64 = btoa(unescape(encodeURIComponent(jsonStr)));
+  const code = `#ASA1|${cleanStr(cand.a?.name)}|${cleanStr(cand.a?.mentor)}|${(cand.updatedAt||"").slice(0,10)}|${base64}`;
+  navigator.clipboard.writeText(code).then(() => {
+    alert("Candidate assessment code copied to clipboard!");
+  }).catch(() => {
+    prompt("Copy assessment code:", code);
+  });
+}
+
+function importCandidateCode() {
+  const input = document.getElementById("import-code-input").value.trim();
+  const feedback = document.getElementById("import-feedback");
+  if (!input) return;
+
+  const re = /#ASA1\|([^|\n]*)\|([^|\n]*)\|([^|\n]*)\|([A-Za-z0-9+/=]+)/g;
+  let m;
+  let count = 0;
+  while ((m = re.exec(input)) !== null) {
+    try {
+      const payloadStr = decodeURIComponent(escape(atob(m[4])));
+      const data = JSON.parse(payloadStr);
+      saveCandidateToRoster(data);
+      count++;
+    } catch(e) {
+      console.error("Parse error for item", e);
+    }
+  }
+
+  if (count === 0 && (input.startsWith("{") || input.startsWith("["))) {
+    try {
+      const parsed = JSON.parse(input);
+      if (Array.isArray(parsed)) {
+        parsed.forEach(c => { saveCandidateToRoster(c); count++; });
+      } else {
+        saveCandidateToRoster(parsed);
+        count++;
+      }
+    } catch(e) { console.error("JSON parse error", e); }
+  }
+
+  if (count > 0) {
+    document.getElementById("import-code-input").value = "";
+    if (feedback) feedback.textContent = `✅ Successfully added ${count} candidate(s)! Selected in viewer.`;
+    populateCandidateSelector();
+    renderRosterTable();
+    const list = loadRoster();
+    if (list.length > 0) {
+      inspectCandidate(list[0].id);
+    }
+  } else {
+    if (feedback) feedback.textContent = "⚠️ No valid #ASA1|... code found. Please check pasted text.";
+  }
+}
+
+
+function loadSampleCandidate() {
+  const sample = {
+    id: "cand_sample_sundar_das",
+    updatedAt: new Date().toISOString(),
+    a: {
+      name: "Sundar Gopal Das",
+      age: "24",
+      occupation: "Software Engineer",
+      living: "ISKCON Youth Hostel",
+      siblings: "1 Elder Sister (Married)",
+      contact_since: "2023",
+      rounds: "16 rounds daily before 8:00 AM",
+      mentor: "HG Venu Gopal Das"
+    },
+    b: {
+      1: "c", 2: "a", 3: "b", 4: "b", 5: "a", 6: "c", 7: "a", 8: "c", 9: "b", 10: "b",
+      11: "b", 12: "a", 13: "b", 14: "a", 15: "b", 16: "a", 17: "b", 18: "a", 19: "c", 20: "c",
+      21: "a", 22: "b", 23: "b", 24: "b", 25: "c", 26: "a", 27: "b", 28: "b", 29: "b", 30: "a",
+      31: "c", 32: "b", 33: "b", 34: "a", 35: "a", 36: "c", 37: "b", 38: "a", 39: "b", 40: "a",
+      41: "b", 42: "c", 43: "c", 44: "c", 45: "b", 46: "c", 47: "c", 48: "a", 49: "c", 50: "a",
+      51: "c", 52: "a"
+    },
+    v: { v1: "a", v2: "a", v3: "a" },
+    c: {
+      1: "Desire to dedicate early youth fully to Sri Krishna and Srila Prabhupada's mission before family entanglements.",
+      2: "Parents are supportive of devotional practices but somewhat apprehensive about full-time ashram dedication.",
+      3: "Overcoming occasional subtle attraction to material career prestige and female association.",
+      4: "Strict sadhana, rising at 4:00 AM, chanting 16 rounds with attention, and daily book distribution.",
+      5: "Deep joy in studying Srimad Bhagavatam and distributing Srila Prabhupada's books.",
+      6: "Willingness to take whatever service the temple authorities assign with complete surrender.",
+      7: "Good physical health and stamina, comfortable with simple prasadam and floor sleeping.",
+      8: "Financial loans are completely zero; student loan repaid in full.",
+      9: "Ready for a 2-week ashram trial under mentor's guidance.",
+      10: "To develop unalloyed pure love for Radha and Krishna and assist Srila Prabhupada's movement."
+    },
+    duties: {
+      only_son: "No, has elder sister",
+      financial: "Parents are self-sufficient with retirement pension",
+      illness: "Parents in reasonably good health",
+      loans: "Zero loans or debt",
+      attitude: "Neutral to supportive",
+      health: "Fit and regular in physical sadhana"
+    }
+  };
+  saveCandidateToRoster(sample);
+  inspectCandidate(sample.id);
+  alert("✅ Loaded sample candidate 'Sundar Gopal Das' for demonstration and testing!");
+}
+
+function saveMentorAssessment() {
+  if (!selectedCandidate) {
+    saveLocal();
+    alert("Mentor evaluation notes saved!");
+    return;
+  }
+  selectedCandidate.mentor_notes = {
+    obs_parents: document.getElementById("obs_parents")?.value || "",
+    obs_decision: document.getElementById("obs_decision")?.value || "",
+    obs_correction: document.getElementById("obs_correction")?.value || "",
+    obs_opposite_sex: document.getElementById("obs_opposite_sex")?.value || "",
+    obs_sadhana: document.getElementById("obs_sadhana")?.value || "",
+    obs_stay: document.getElementById("obs_stay")?.value || "",
+    obs_seniors: document.getElementById("obs_seniors")?.value || "",
+    obs_family: document.getElementById("obs_family")?.value || "",
+    obs_consistency: document.getElementById("obs_consistency")?.value || "",
+    rec: document.querySelector('input[name="mentor_rec"]:checked')?.value || "",
+    areas_work: document.getElementById("mentor_areas_work")?.value || "",
+    next_review: document.getElementById("mentor_next_review")?.value || "",
+    sign: document.getElementById("mentor_sign")?.value || ""
+  };
+  saveCandidateToRoster(selectedCandidate);
+  alert(`Counselor evaluation notes successfully saved for candidate "${selectedCandidate.a?.name || 'Devotee'}"!`);
+}
+
+function exportRosterCSV() {
+  const list = loadRoster();
+  if (!list.length) {
+    alert("No candidates in the roster to export.");
+    return;
+  }
+  const qStr = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const qHeaders = [];
+  for (let i = 1; i <= 52; i++) {
+    qHeaders.push(`Q${i}_Answer`, `Q${i}_Score`);
+  }
+  const partCHeaders = [];
+  for (let i = 1; i <= 10; i++) {
+    partCHeaders.push(`PartC_${i}`);
+  }
+
+  const head = [
+    "Candidate Name", "Age", "Occupation", "Living With", "Daily Rounds", "Mentor",
+    "Total Score", "Primary Indication", "Gatekeeper Status", 
+    ...qHeaders, ...partCHeaders, "Submitted At"
+  ];
+
+  const lines = [head.map(qStr).join(",")];
+
+  list.forEach(c => {
+    const calc = c.calc || evaluateCandidate(c);
+    const b = c.b || {};
+    const cAns = c.c || {};
+    const qData = [];
+    for (let i = 1; i <= 52; i++) {
+      const ans = b[i] || "";
+      const score = (ans && SCORING_KEY[i] && SCORING_KEY[i][ans] !== undefined) ? SCORING_KEY[i][ans] : "";
+      qData.push(ans, score);
+    }
+    const cData = [];
+    for (let i = 1; i <= 10; i++) {
+      cData.push(cAns[i] || "");
+    }
+
+    lines.push([
+      c.a?.name || "", c.a?.age || "", c.a?.occupation || "", c.a?.living || "", c.a?.rounds || "", c.a?.mentor || "",
+      calc.totalScore, calc.indication, (calc.gatekeeperFailures && calc.gatekeeperFailures.length ? "ALERT" : "CLEARED"), 
+      ...qData, ...cData, c.updatedAt || ""
+    ].map(qStr).join(","));
+  });
+
+  const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `Asrama_Assessment_All_Candidates_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+}
+
+function exportSelectedStudentCSV() {
+  if (!selectedCandidate) return;
+  const list = [selectedCandidate];
+  const qStr = v => `"${String(v ?? "").replace(/"/g, '""')}"`;
+  const qHeaders = [];
+  for (let i = 1; i <= 52; i++) {
+    qHeaders.push(`Q${i}_Question`, `Q${i}_ChosenOption`, `Q${i}_Score`);
+  }
+  const head = ["Candidate Name", "Age", "Daily Rounds", "Total Score", "Indication", ...qHeaders];
+  const lines = [head.map(qStr).join(",")];
+  const c = selectedCandidate;
+  const calc = c.calc || evaluateCandidate(c);
+  const b = c.b || {};
+  const qData = [];
+  for (let i = 1; i <= 52; i++) {
+    const q = QUESTIONS.find(x => x.id === i);
+    const ans = b[i] || "";
+    const score = (ans && SCORING_KEY[i] && SCORING_KEY[i][ans] !== undefined) ? SCORING_KEY[i][ans] : 0;
+    const opt = q ? q.options.find(o => o.key === ans) : null;
+    qData.push(q ? q.text : `Q${i}`, opt ? `${ans}) ${opt.text}` : ans, score);
+  }
+  lines.push([c.a?.name || "", c.a?.age || "", c.a?.rounds || "", calc.totalScore, calc.indication, ...qData].map(qStr).join(","));
+
+  const blob = new Blob([lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `Responses_${(c.a?.name || "Student").replace(/\s+/g, "_")}.csv`;
+  a.click();
+}
+
+/* ==========================================================
+   INITIALIZATION
+   ========================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderPartB();
+  renderPartC();
+  loadLocal();
+  updateProgressAndScores();
+  populateCandidateSelector();
+  renderRosterTable();
+
+  // Auto-save on text changes
+  document.querySelectorAll("input, textarea, select").forEach(el => {
+    el.addEventListener("change", () => {
+      saveLocal();
+      if (document.getElementById("mentor-candidate-select")?.value === "__current__") {
+        showCandidateInMentorPortal(getFormData());
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>
